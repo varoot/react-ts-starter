@@ -9,6 +9,8 @@
   },
   "scripts": {
     "start": "react-scripts-ts start",
+    "lint": "tslint --project tsconfig.json src/**/*.ts{,x}",
+    "format": "prettier --write src/**/*.ts{,x}",
     "build": "react-scripts-ts build",
     "test": "react-scripts-ts test --env=jsdom",
     "eject": "react-scripts-ts eject"
@@ -18,6 +20,9 @@
     "@types/node": "^9.4.7",
     "@types/react": "^16.0.40",
     "@types/react-dom": "^16.0.4",
+    "prettier": "^1.11.1",
+    "tslint-config-airbnb": "^5.7.0",
+    "tslint-config-prettier": "^1.10.0",
     "typescript": "^2.7.2"
   }
 }

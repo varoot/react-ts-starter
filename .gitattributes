@@ -1,0 +1,11 @@
+# Use LF line endings by default
+* text eol=lf
+
+# yarn.lock use auto line endings
+yarn.lock text=auto
+
+# Binary files
+*.gif binary
+*.ico binary
+*.jpg binary
+*.png binary
