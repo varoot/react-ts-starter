@@ -66,4 +66,5 @@ class App extends React.Component<Props & WithStyles<ClassKeys>, State> {
   }
 }
 
+export { Props, State };
 export default withStyles(styles)(App);
