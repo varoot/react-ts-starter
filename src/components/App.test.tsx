@@ -1,10 +1,10 @@
 import { ShallowWrapper } from 'enzyme';
 import { createShallow } from 'material-ui/test-utils';
 import * as React from 'react';
-import App, { Props, State } from './App';
+import App, { AppProps, AppState } from './App';
 
 describe('Component: App', () => {
-  let wrapper: ShallowWrapper<Props, State>;
+  let wrapper: ShallowWrapper<AppProps, AppState>;
 
   beforeEach(() => {
     const shallow = createShallow({
