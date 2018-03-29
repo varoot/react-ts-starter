@@ -69,5 +69,5 @@ class Home extends React.PureComponent<Props & WithStyles<ClassKeys>, State> {
   }
 }
 
-export { Props, State };
+export { Props as HomeProps, State as HomeState };
 export default withStyles(styles)(Home);

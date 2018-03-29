@@ -35,5 +35,5 @@ const Test: React.SFC<Props & WithStyles<ClassKeys>> = ({ classes }) => {
   );
 };
 
-export { Props };
+export { Props as TestProps };
 export default withStyles(styles)(Test);

@@ -2,17 +2,17 @@ import { ReactWrapper } from 'enzyme';
 import { createMount } from 'material-ui/test-utils';
 import * as React from 'react';
 import { MemoryRouter } from 'react-router';
-import Home, { Props, State } from './Home';
+import Home, { HomeProps, HomeState } from './Home';
 
 describe('Component: Home', () => {
   // Wraps component inside router so we can test with setProps
-  const RoutedComponent: React.SFC<Props> = (props) => (
+  const RoutedComponent: React.SFC<HomeProps> = (props) => (
     <MemoryRouter>
       <Home {...props} />
     </MemoryRouter>
   );
 
-  let wrapper: ReactWrapper<Props, State>;
+  let wrapper: ReactWrapper<HomeProps, HomeState>;
 
   beforeEach(() => {
     const mount = createMount();

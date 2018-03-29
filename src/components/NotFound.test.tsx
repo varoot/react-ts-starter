@@ -1,10 +1,10 @@
 import { ReactWrapper } from 'enzyme';
 import { createMount } from 'material-ui/test-utils';
 import * as React from 'react';
-import NotFound, { Props } from './NotFound';
+import NotFound, { NotFoundProps } from './NotFound';
 
 describe('Component: NotFound', () => {
-  let wrapper: ReactWrapper<Props>;
+  let wrapper: ReactWrapper<NotFoundProps>;
 
   beforeEach(() => {
     const mount = createMount();
