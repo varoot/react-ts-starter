@@ -6,5 +6,5 @@ const initialState: State = {};
 
 const reducers: Reducer<State> = (state = initialState, action) => state;
 
-export { State };
+export { State as StoreState };
 export default reducers;
