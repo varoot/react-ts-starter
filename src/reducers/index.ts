@@ -1,10 +1,13 @@
-import { Reducer } from 'redux';
+import { combineReducers } from 'redux';
+import snackbarReducers, { SnackbarState } from './snackbarReducers';
 
-interface State {}
+interface State {
+  snackbar: SnackbarState;
+}
 
-const initialState: State = {};
-
-const reducers: Reducer<State> = (state = initialState, action) => state;
+const reducers = combineReducers<State>({
+  snackbar: snackbarReducers,
+});
 
 export { State as StoreState };
 export default reducers;
