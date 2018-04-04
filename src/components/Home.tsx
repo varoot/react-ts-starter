@@ -1,8 +1,11 @@
 import * as classNames from 'classnames';
+import Button from 'material-ui/Button';
 import Typography from 'material-ui/Typography';
 import { StyleRulesCallback, WithStyles, withStyles } from 'material-ui/styles';
 import * as React from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { snackbarPush } from '../actions';
 import routes from '../routes';
 
 const logo = require('../assets/logo.svg');
@@ -41,11 +44,27 @@ interface Props {
   title?: string;
 }
 
+interface DispatchProps {
+  snackbarPush: typeof snackbarPush;
+}
+
 interface State {}
 
-class Home extends React.PureComponent<Props & WithStyles<ClassKeys>, State> {
+class Home extends React.PureComponent<Props & DispatchProps & WithStyles<ClassKeys>, State> {
   static defaultProps = {
     title: 'Welcome to React',
+  };
+
+  testSnackbar = () => {
+    this.props.snackbarPush({
+      button: {
+        callback: () => {
+          // Snackbar is automatically dismissed when the button is clicked
+        },
+        label: 'Close',
+      },
+      message: 'Testing Snackbar',
+    });
   };
 
   render() {
@@ -64,10 +83,14 @@ class Home extends React.PureComponent<Props & WithStyles<ClassKeys>, State> {
         <Typography className={classes.margin}>
           <Link to={routes.test}>Test Router</Link>
         </Typography>
+        <Button color="primary" variant="raised" onClick={this.testSnackbar}>
+          Test Snackbar
+        </Button>
       </div>
     );
   }
 }
 
 export { Props as HomeProps, State as HomeState };
-export default withStyles(styles)(Home);
+export const StyledComponent = withStyles(styles)(Home);
+export default connect(undefined, { snackbarPush })(StyledComponent);

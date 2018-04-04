@@ -1,15 +1,19 @@
 import { ReactWrapper } from 'enzyme';
 import { createMount } from 'material-ui/test-utils';
 import * as React from 'react';
+import { Provider } from 'react-redux';
 import { MemoryRouter } from 'react-router';
+import store from '../store';
 import Home, { HomeProps, HomeState } from './Home';
 
 describe('Component: Home', () => {
   // Wraps component inside router so we can test with setProps
   const RoutedComponent: React.SFC<HomeProps> = (props) => (
-    <MemoryRouter>
-      <Home {...props} />
-    </MemoryRouter>
+    <Provider store={store}>
+      <MemoryRouter>
+        <Home {...props} />
+      </MemoryRouter>
+    </Provider>
   );
 
   let wrapper: ReactWrapper<HomeProps, HomeState>;

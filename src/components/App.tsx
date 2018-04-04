@@ -5,6 +5,7 @@ import routes from '../routes';
 import Home from './Home';
 import NotFound from './NotFound';
 import Test from './Test';
+import TheSnackbar from './TheSnackbar';
 
 type ClassKeys = 'root';
 
@@ -34,6 +35,7 @@ class App extends React.Component<Props & WithStyles<ClassKeys>, State> {
             <Route component={NotFound} />
           </Switch>
         </main>
+        <TheSnackbar />
       </div>
     );
   }
