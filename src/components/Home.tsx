@@ -15,10 +15,10 @@ type ClassKeys = 'root' | 'header' | 'margin' | 'padding' | 'logo';
 const styles: StyleRulesCallback<ClassKeys> = (theme) => ({
   '@keyframes App-logo-spin': {
     from: {
-      transform: [['rotate(0deg)']],
+      transform: 'rotate(0deg)',
     },
     to: {
-      transform: [['rotate(360deg)']],
+      transform: 'rotate(360deg)',
     },
   },
   header: {
@@ -26,7 +26,7 @@ const styles: StyleRulesCallback<ClassKeys> = (theme) => ({
     color: theme.palette.getContrastText(theme.palette.grey[900]),
   },
   logo: {
-    animation: [['App-logo-spin', 'infinite', '20s', 'linear']],
+    animation: 'App-logo-spin infinite 20s linear',
     height: theme.spacing.unit * 10,
   },
   margin: {

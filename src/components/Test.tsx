@@ -8,10 +8,10 @@ type ClassKeys = 'root' | 'margin';
 
 const styles: StyleRulesCallback<ClassKeys> = (theme) => ({
   margin: {
-    margin: [[theme.spacing.unit * 2, theme.spacing.unit * 0.5]],
+    margin: `${theme.spacing.unit * 2}px ${theme.spacing.unit * 0.5}px`,
   },
   root: {
-    margin: [[0, 'auto']],
+    margin: '0 auto',
     maxWidth: theme.breakpoints.values.sm,
     padding: theme.spacing.unit * 2,
   },
