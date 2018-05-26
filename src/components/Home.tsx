@@ -1,7 +1,7 @@
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
+import { StyleRulesCallback, WithStyles, withStyles } from '@material-ui/core/styles';
 import * as classNames from 'classnames';
-import Button from 'material-ui/Button';
-import Typography from 'material-ui/Typography';
-import { StyleRulesCallback, WithStyles, withStyles } from 'material-ui/styles';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';

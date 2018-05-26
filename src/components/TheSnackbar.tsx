@@ -1,5 +1,5 @@
-import Button from 'material-ui/Button';
-import Snackbar from 'material-ui/Snackbar';
+import Button from '@material-ui/core/Button';
+import Snackbar from '@material-ui/core/Snackbar';
 import * as React from 'react';
 import { MapStateToProps, connect } from 'react-redux';
 import { snackbarPop } from '../actions';
@@ -91,7 +91,7 @@ class TheSnackbar extends React.PureComponent<Props & StoreProps & DispatchProps
         open={this.state.isOpen}
         onClose={this.handleClose}
         onExited={this.checkExit}
-        SnackbarContentProps={{
+        ContentProps={{
           'aria-describedby': 'message-id',
         }}
       />

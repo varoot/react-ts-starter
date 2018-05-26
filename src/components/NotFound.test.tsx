@@ -1,5 +1,5 @@
+import { createMount } from '@material-ui/core/test-utils';
 import { ReactWrapper } from 'enzyme';
-import { createMount } from 'material-ui/test-utils';
 import * as React from 'react';
 import NotFound, { NotFoundProps } from './NotFound';
 
