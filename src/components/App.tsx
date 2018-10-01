@@ -1,4 +1,9 @@
-import { StyleRulesCallback, WithStyles, withStyles } from '@material-ui/core/styles';
+import {
+  StyleRulesCallback,
+  StyledComponentProps,
+  WithStyles,
+  withStyles,
+} from '@material-ui/core/styles';
 import * as React from 'react';
 import { Route, Switch } from 'react-router';
 import routes from '../routes';
@@ -19,9 +24,11 @@ const styles: StyleRulesCallback<ClassKeys> = (theme) => ({
   root: {},
 });
 
-interface Props {}
+interface ComponentProps {}
 
 interface State {}
+
+type Props = ComponentProps;
 
 class App extends React.Component<Props & WithStyles<ClassKeys>, State> {
   render() {
@@ -41,5 +48,9 @@ class App extends React.Component<Props & WithStyles<ClassKeys>, State> {
   }
 }
 
-export { Props as AppProps, State as AppState };
-export default withStyles(styles)(App);
+const StyledComponent = withStyles(styles)(App);
+
+export type AppProps = Props & StyledComponentProps<ClassKeys>;
+export { State as AppState, StyledComponent as TestComponent };
+
+export default StyledComponent;

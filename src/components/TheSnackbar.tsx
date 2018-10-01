@@ -99,4 +99,7 @@ class TheSnackbar extends React.PureComponent<Props & StoreProps & DispatchProps
   }
 }
 
-export default connect(mapStateToProps, { snackbarPop })(TheSnackbar);
+export default connect(
+  mapStateToProps,
+  { snackbarPop },
+)(TheSnackbar);

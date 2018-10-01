@@ -1,6 +1,11 @@
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import { StyleRulesCallback, WithStyles, withStyles } from '@material-ui/core/styles';
+import {
+  StyleRulesCallback,
+  StyledComponentProps,
+  WithStyles,
+  withStyles,
+} from '@material-ui/core/styles';
 import * as classNames from 'classnames';
 import * as React from 'react';
 import { connect } from 'react-redux';
@@ -40,7 +45,7 @@ const styles: StyleRulesCallback<ClassKeys> = (theme) => ({
   },
 });
 
-interface Props {
+interface ComponentProps {
   title?: string;
 }
 
@@ -50,7 +55,9 @@ interface DispatchProps {
 
 interface State {}
 
-class Home extends React.PureComponent<Props & DispatchProps & WithStyles<ClassKeys>, State> {
+type Props = ComponentProps & DispatchProps;
+
+class Home extends React.PureComponent<Props & WithStyles<ClassKeys>, State> {
   static defaultProps = {
     title: 'Welcome to React',
   };
@@ -91,6 +98,12 @@ class Home extends React.PureComponent<Props & DispatchProps & WithStyles<ClassK
   }
 }
 
-export { Props as HomeProps, State as HomeState };
-export const StyledComponent = withStyles(styles)(Home);
-export default connect(undefined, { snackbarPush })(StyledComponent);
+const StyledComponent = withStyles(styles)(Home);
+
+export type HomeProps = Props & StyledComponentProps<ClassKeys>;
+export { State as HomeState, StyledComponent as TestComponent };
+
+export default connect(
+  undefined,
+  { snackbarPush },
+)(StyledComponent);

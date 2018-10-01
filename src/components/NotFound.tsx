@@ -16,5 +16,7 @@ const NotFound: React.SFC<Props> = () => {
   );
 };
 
-export { Props as NotFoundProps };
+export type NotFoundProps = Props;
+export { NotFound as TestComponent };
+
 export default NotFound;
