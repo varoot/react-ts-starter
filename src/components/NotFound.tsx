@@ -6,7 +6,7 @@ interface Props {}
 const NotFound: React.SFC<Props> = () => {
   return (
     <div>
-      <Typography variant="display2" component="h1">
+      <Typography component="h1" variant="h3">
         404
       </Typography>
       <Typography>

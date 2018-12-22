@@ -80,7 +80,7 @@ class Home extends React.PureComponent<Props & WithStyles<ClassKeys>, State> {
       <div className={classes.root}>
         <div className={classNames([classes.header, classes.padding])}>
           <img src={logo} className={classes.logo} alt="logo" />
-          <Typography variant="display2" color="inherit" component="h1">
+          <Typography color="inherit" component="h1" variant="h3">
             {this.props.title}
           </Typography>
         </div>
@@ -90,7 +90,7 @@ class Home extends React.PureComponent<Props & WithStyles<ClassKeys>, State> {
         <Typography className={classes.margin}>
           <Link to={routes.test}>Test Router</Link>
         </Typography>
-        <Button color="primary" variant="raised" onClick={this.testSnackbar}>
+        <Button color="primary" onClick={this.testSnackbar} variant="contained">
           Test Snackbar
         </Button>
       </div>

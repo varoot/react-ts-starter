@@ -22,7 +22,7 @@ interface Props {}
 const Test: React.SFC<Props & WithStyles<ClassKeys>> = ({ classes }) => {
   return (
     <div className={classes.root}>
-      <Typography variant="display2" component="h1">
+      <Typography component="h1" variant="h3">
         Test Page
       </Typography>
       <Typography className={classes.margin}>

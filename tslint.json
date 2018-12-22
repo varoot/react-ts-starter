@@ -6,7 +6,7 @@
     "class-name": true,
     "cyclomatic-complexity": true,
     "forin": true,
-    "import-blacklist": [true, "lodash", "material-ui", "material-ui-icons", "rxjs"],
+    "import-blacklist": [true, "@material-ui/core", "@material-ui/icons", "lodash", "rxjs"],
     "interface-name": [true, "never-prefix"],
     "jsdoc-format": true,
     "jsx-boolean-value": [true, "never"],
