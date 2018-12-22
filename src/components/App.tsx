@@ -1,9 +1,4 @@
-import {
-  StyleRulesCallback,
-  StyledComponentProps,
-  WithStyles,
-  withStyles,
-} from '@material-ui/core/styles';
+import { StyleRulesCallback, StyledComponentProps, WithStyles, withStyles } from '@material-ui/core/styles';
 import * as React from 'react';
 import { Route, Switch } from 'react-router';
 import routes from '../routes';

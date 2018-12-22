@@ -60,11 +60,7 @@ class TheSnackbar extends React.PureComponent<Props & StoreProps & DispatchProps
     }
 
     return (
-      <Button
-        color="secondary"
-        onClick={this.getActionButtonCallback(snackbarItem.button.callback)}
-        size="small"
-      >
+      <Button color="secondary" onClick={this.getActionButtonCallback(snackbarItem.button.callback)} size="small">
         {snackbarItem.button.label}
       </Button>
     );
@@ -85,9 +81,7 @@ class TheSnackbar extends React.PureComponent<Props & StoreProps & DispatchProps
         }}
         autoHideDuration={duration}
         action={this.getActionButton()}
-        message={
-          <span id="message-id">{snackbarItem == undefined ? '' : snackbarItem.message}</span>
-        }
+        message={<span id="message-id">{snackbarItem == undefined ? '' : snackbarItem.message}</span>}
         open={this.state.isOpen}
         onClose={this.handleClose}
         onExited={this.checkExit}
