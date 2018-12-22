@@ -8,13 +8,13 @@ import { StoreState } from '../reducers';
 import { getSnackbarItemFirst } from '../selectors';
 import SnackbarItem from '../types/SnackbarItem';
 
-interface Props {}
+interface ComponentProps {}
 
 interface StoreProps {
   snackbarItem: SnackbarItem | undefined;
 }
 
-const mapStateToProps: MapStateToProps<StoreProps, Props, StoreState> = (store) => ({
+const mapStateToProps: MapStateToProps<StoreProps, ComponentProps, StoreState> = (store) => ({
   snackbarItem: getSnackbarItemFirst(store),
 });
 
@@ -26,7 +26,9 @@ interface State {
   isOpen: boolean;
 }
 
-class TheSnackbar extends React.PureComponent<Props & StoreProps & DispatchProps, State> {
+type Props = ComponentProps & StoreProps & DispatchProps;
+
+class TheSnackbar extends React.PureComponent<Props, State> {
   state: State = {
     isOpen: false,
   };
@@ -93,7 +95,7 @@ class TheSnackbar extends React.PureComponent<Props & StoreProps & DispatchProps
   }
 }
 
-export default connect(
+export default connect<StoreProps, DispatchProps, ComponentProps>(
   mapStateToProps,
   { snackbarPop },
 )(TheSnackbar);

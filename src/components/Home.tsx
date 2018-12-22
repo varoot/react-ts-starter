@@ -98,7 +98,7 @@ const StyledComponent = withStyles(styles)(Home);
 export type HomeProps = Props & StyledComponentProps<ClassKeys>;
 export { State as HomeState, StyledComponent as TestComponent };
 
-export default connect(
+export default connect<void, DispatchProps, ComponentProps>(
   undefined,
   { snackbarPush },
 )(StyledComponent);

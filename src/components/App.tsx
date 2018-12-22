@@ -13,17 +13,15 @@ const styles: StyleRulesCallback<ClassKeys> = (theme) => ({
   '@global': {
     code: {
       color: theme.palette.secondary.main,
-      fontFamily: ['Consolas', 'monospace'],
+      fontFamily: 'Consolas, monospace',
     },
   },
   root: {},
 });
 
-interface ComponentProps {}
-
 interface State {}
 
-type Props = ComponentProps;
+type Props = {};
 
 class App extends React.Component<Props & WithStyles<ClassKeys>, State> {
   render() {

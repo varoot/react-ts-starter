@@ -17,7 +17,7 @@ const styles: StyleRulesCallback<ClassKeys> = (theme) => ({
   },
 });
 
-interface Props {}
+type Props = {};
 
 const Test: React.SFC<Props & WithStyles<ClassKeys>> = ({ classes }) => {
   return (

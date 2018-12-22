@@ -1,7 +1,9 @@
 import Typography from '@material-ui/core/Typography';
 import * as React from 'react';
 
-interface Props {}
+interface ComponentProps {}
+
+type Props = ComponentProps;
 
 const NotFound: React.SFC<Props> = () => {
   return (
