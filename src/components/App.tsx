@@ -1,5 +1,5 @@
 import { StyleRulesCallback, StyledComponentProps, WithStyles, withStyles } from '@material-ui/core/styles';
-import * as React from 'react';
+import React from 'react';
 import { Route, Switch } from 'react-router';
 import routes from '../routes';
 import Home from './Home';
@@ -19,11 +19,9 @@ const styles: StyleRulesCallback<ClassKeys> = (theme) => ({
   root: {},
 });
 
-interface State {}
-
 type Props = {};
 
-class App extends React.Component<Props & WithStyles<ClassKeys>, State> {
+class App extends React.Component<Props & WithStyles<ClassKeys>> {
   render() {
     const { classes } = this.props;
     return (
@@ -44,6 +42,6 @@ class App extends React.Component<Props & WithStyles<ClassKeys>, State> {
 const StyledComponent = withStyles(styles)(App);
 
 export type AppProps = Props & StyledComponentProps<ClassKeys>;
-export { State as AppState, StyledComponent as TestComponent };
+export { StyledComponent as TestComponent };
 
 export default StyledComponent;

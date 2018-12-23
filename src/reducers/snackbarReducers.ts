@@ -29,5 +29,5 @@ const snackbarReducers: Reducer<State> = (state = initialState, action: AppActio
   return state;
 };
 
-export { State as SnackbarState };
+export type SnackbarState = State;
 export default snackbarReducers;

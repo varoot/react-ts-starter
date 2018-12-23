@@ -1,6 +1,6 @@
 import { MountRendererProps, mount } from 'enzyme';
-import * as PropTypes from 'prop-types';
-import * as React from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import { MemoryRouter, Router } from 'react-router';
 
 /**

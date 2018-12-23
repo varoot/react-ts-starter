@@ -1,11 +1,11 @@
 import { createShallow } from '@material-ui/core/test-utils';
 import { ShallowWrapper } from 'enzyme';
-import * as React from 'react';
-import { AppProps, AppState, TestComponent as App } from './App';
+import React from 'react';
+import { AppProps, TestComponent as App } from './App';
 
 describe('Component: App', () => {
   let shallow: ReturnType<typeof createShallow>;
-  let wrapper: ShallowWrapper<AppProps, AppState>;
+  let wrapper: ShallowWrapper<AppProps>;
 
   beforeEach(() => {
     shallow = createShallow({

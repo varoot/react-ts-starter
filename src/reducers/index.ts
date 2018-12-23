@@ -9,5 +9,5 @@ const reducers = combineReducers<State>({
   snackbar: snackbarReducers,
 });
 
-export { State as StoreState };
+export type StoreState = State;
 export default reducers;

@@ -1,14 +1,13 @@
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { StyleRulesCallback, StyledComponentProps, WithStyles, withStyles } from '@material-ui/core/styles';
-import * as classNames from 'classnames';
-import * as React from 'react';
+import classNames from 'classnames';
+import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { snackbarPush } from '../actions';
+import logoSvg from '../assets/logo.svg';
 import routes from '../routes';
-
-const logo = require('../assets/logo.svg');
 
 type ClassKeys = 'root' | 'header' | 'margin' | 'padding' | 'logo';
 
@@ -48,11 +47,9 @@ interface DispatchProps {
   snackbarPush: typeof snackbarPush;
 }
 
-interface State {}
-
 type Props = ComponentProps & DispatchProps;
 
-class Home extends React.PureComponent<Props & WithStyles<ClassKeys>, State> {
+class Home extends React.PureComponent<Props & WithStyles<ClassKeys>> {
   static defaultProps = {
     title: 'Welcome to React',
   };
@@ -74,7 +71,7 @@ class Home extends React.PureComponent<Props & WithStyles<ClassKeys>, State> {
     return (
       <div className={classes.root}>
         <div className={classNames([classes.header, classes.padding])}>
-          <img src={logo} className={classes.logo} alt="logo" />
+          <img src={logoSvg} className={classes.logo} alt="logo" />
           <Typography color="inherit" component="h1" variant="h3">
             {this.props.title}
           </Typography>
@@ -96,7 +93,7 @@ class Home extends React.PureComponent<Props & WithStyles<ClassKeys>, State> {
 const StyledComponent = withStyles(styles)(Home);
 
 export type HomeProps = Props & StyledComponentProps<ClassKeys>;
-export { State as HomeState, StyledComponent as TestComponent };
+export { StyledComponent as TestComponent };
 
 export default connect<void, DispatchProps, ComponentProps>(
   undefined,

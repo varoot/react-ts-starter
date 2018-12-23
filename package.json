@@ -11,16 +11,16 @@
     "react-redux": "^6.0.0",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
-    "react-scripts-ts": "3.1.0",
+    "react-scripts": "^2.1.1",
     "redux": "^4.0.1"
   },
   "scripts": {
-    "start": "react-scripts-ts start",
+    "start": "react-scripts start",
     "lint": "tslint --project tsconfig.json src/**/*.ts{,x}",
     "format": "prettier --write src/**/*.ts{,x}",
-    "build": "react-scripts-ts build",
-    "test": "react-scripts-ts test --env=jsdom",
-    "eject": "react-scripts-ts eject"
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
   "devDependencies": {
     "@types/classnames": "^2.2.6",
@@ -37,8 +37,16 @@
     "enzyme-adapter-react-16": "^1.7.1",
     "prettier": "^1.15.3",
     "prop-types": "^15.6.2",
+    "tslint": "^5.12.0",
     "tslint-config-airbnb": "^5.11.1",
     "tslint-config-prettier": "^1.17.0",
+    "tslint-react": "^3.6.0",
     "typescript": "^3.2.2"
-  }
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie < 11",
+    "not op_mini all"
+  ]
 }

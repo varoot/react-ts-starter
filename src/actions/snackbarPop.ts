@@ -1,6 +1,6 @@
 import ActionType from '../types/ActionType';
 
-interface SnackbarPopAction {
+export interface SnackbarPopAction {
   type: ActionType.SnackbarPop;
 }
 
@@ -10,5 +10,4 @@ function snackbarPop(): SnackbarPopAction {
   };
 }
 
-export { SnackbarPopAction };
 export default snackbarPop;

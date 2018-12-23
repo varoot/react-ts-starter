@@ -7,6 +7,10 @@
     "cyclomatic-complexity": true,
     "forin": true,
     "import-blacklist": [true, "@material-ui/core", "@material-ui/icons", "lodash", "rxjs"],
+    "import-name": [
+      true,
+      { "classnames": "classNames", "propTypes": "PropTypes", "react": "React", "reactDom": "ReactDOM" }
+    ],
     "interface-name": [true, "never-prefix"],
     "jsdoc-format": true,
     "jsx-boolean-value": [true, "never"],

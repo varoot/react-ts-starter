@@ -1,6 +1,6 @@
 import Typography from '@material-ui/core/Typography';
 import { StyleRulesCallback, WithStyles, withStyles } from '@material-ui/core/styles';
-import * as React from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import routes from '../routes';
 
@@ -35,5 +35,5 @@ const Test: React.SFC<Props & WithStyles<ClassKeys>> = ({ classes }) => {
   );
 };
 
-export { Props as TestProps };
+export type TestProps = Props;
 export default withStyles(styles)(Test);

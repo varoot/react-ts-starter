@@ -1,6 +1,6 @@
 import Button from '@material-ui/core/Button';
 import Snackbar from '@material-ui/core/Snackbar';
-import * as React from 'react';
+import React from 'react';
 import { MapStateToProps, connect } from 'react-redux';
 import { snackbarPop } from '../actions';
 import snackbarConfig from '../config/snackbarConfig';
@@ -39,7 +39,7 @@ class TheSnackbar extends React.PureComponent<Props, State> {
     }
   }
 
-  handleClose = (event: React.MouseEvent<HTMLElement>, reason: string) => {
+  handleClose = (event: React.SyntheticEvent<HTMLElement>, reason: string) => {
     if (reason !== 'clickaway') {
       this.setState({ isOpen: false });
     }
@@ -95,7 +95,7 @@ class TheSnackbar extends React.PureComponent<Props, State> {
   }
 }
 
-export default connect<StoreProps, DispatchProps, ComponentProps>(
+export default connect<StoreProps, DispatchProps, ComponentProps, StoreState>(
   mapStateToProps,
   { snackbarPop },
 )(TheSnackbar);

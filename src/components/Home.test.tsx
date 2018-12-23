@@ -1,13 +1,13 @@
 import { createMount } from '@material-ui/core/test-utils';
 import { ReactWrapper } from 'enzyme';
-import * as React from 'react';
+import React from 'react';
 import getRouterMountOptions from '../testHelpers/getRouterMountOptions';
-import { HomeProps, HomeState, TestComponent as Home } from './Home';
+import { HomeProps, TestComponent as Home } from './Home';
 
 describe('Component: Home', () => {
   let defaultProps: HomeProps;
   let mount: ReturnType<typeof createMount>;
-  let wrapper: ReactWrapper<HomeProps, HomeState>;
+  let wrapper: ReactWrapper<HomeProps>;
 
   beforeEach(() => {
     mount = createMount();

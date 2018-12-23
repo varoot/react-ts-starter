@@ -1,6 +1,6 @@
 import { createMount } from '@material-ui/core/test-utils';
 import { ReactWrapper } from 'enzyme';
-import * as React from 'react';
+import React from 'react';
 import { NotFoundProps, TestComponent as NotFound } from './NotFound';
 
 describe('Component: NotFound', () => {
