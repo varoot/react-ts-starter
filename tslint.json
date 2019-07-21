@@ -43,7 +43,6 @@
     "no-string-throw": true,
     "no-switch-case-fall-through": true,
     "no-unused-expression": true,
-    "no-use-before-declare": true,
     "one-line": [true, "check-catch", "check-else", "check-finally", "check-open-brace"],
     "ordered-imports": [
       true,

@@ -1,11 +1,9 @@
 import Typography from '@material-ui/core/Typography';
 import React from 'react';
 
-interface ComponentProps {}
+interface Props {}
 
-type Props = ComponentProps;
-
-const NotFound: React.SFC<Props> = () => {
+const NotFound: React.FC<Props> = () => {
   return (
     <div>
       <Typography component="h1" variant="h3">
@@ -19,6 +17,4 @@ const NotFound: React.SFC<Props> = () => {
 };
 
 export type NotFoundProps = Props;
-export { NotFound as TestComponent };
-
-export default NotFound;
+export default React.memo(NotFound);

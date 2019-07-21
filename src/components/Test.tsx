@@ -1,25 +1,30 @@
+import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
-import { StyleRulesCallback, WithStyles, withStyles } from '@material-ui/core/styles';
+import makeStyles from '@material-ui/styles/makeStyles';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom';
 import routes from '../routes';
-
-type ClassKeys = 'root' | 'margin';
-
-const styles: StyleRulesCallback<ClassKeys> = (theme) => ({
-  margin: {
-    margin: `${theme.spacing.unit * 2}px ${theme.spacing.unit * 0.5}px`,
-  },
-  root: {
-    margin: '0 auto',
-    maxWidth: theme.breakpoints.values.sm,
-    padding: theme.spacing.unit * 2,
-  },
-});
+import { ThemeType } from '../theme';
 
 type Props = {};
+type ClassKeys = 'root' | 'margin';
 
-const Test: React.SFC<Props & WithStyles<ClassKeys>> = ({ classes }) => {
+const useStyles = makeStyles<ThemeType, Props, ClassKeys>(
+  (theme) => ({
+    margin: {
+      margin: theme.spacing(2, 0.5),
+    },
+    root: {
+      margin: '0 auto',
+      maxWidth: theme.breakpoints.values.sm,
+      padding: theme.spacing(2),
+    },
+  }),
+  { name: 'Test' },
+);
+
+const Test: React.SFC<Props> = (props) => {
+  const classes = useStyles(props);
   return (
     <div className={classes.root}>
       <Typography component="h1" variant="h3">
@@ -29,11 +34,13 @@ const Test: React.SFC<Props & WithStyles<ClassKeys>> = ({ classes }) => {
         <code>src/components/Test.tsx</code> is rendered when you visit <code>{routes.test}</code>.
       </Typography>
       <Typography className={classes.margin}>
-        <Link to={routes.home}>Home</Link>
+        <Link component={RouterLink} to={routes.home}>
+          Home
+        </Link>
       </Typography>
     </div>
   );
 };
 
 export type TestProps = Props;
-export default withStyles(styles)(Test);
+export default React.memo(Test);

@@ -1,20 +1,20 @@
-import { createShallow } from '@material-ui/core/test-utils';
-import { ShallowWrapper } from 'enzyme';
 import React from 'react';
-import { AppProps, TestComponent as App } from './App';
+import { render } from '../testHelpers';
+import App from './App';
 
 describe('Component: App', () => {
-  let shallow: ReturnType<typeof createShallow>;
-  let wrapper: ShallowWrapper<AppProps>;
-
-  beforeEach(() => {
-    shallow = createShallow({
-      untilSelector: 'App',
-    });
+  it('should render main', () => {
+    const { container } = render(<App />);
+    expect(container.querySelector('main')).toBeInTheDocument();
   });
 
-  it('should render main', () => {
-    wrapper = shallow(<App />);
-    expect(wrapper.find('main').exists()).toBe(true);
+  it('should render Home route', () => {
+    const { container } = render(<App />, { route: '/' });
+    expect(container).toHaveTextContent('Welcome to React');
+  });
+
+  it('should render Test route', () => {
+    const { container } = render(<App />, { route: '/test' });
+    expect(container).toHaveTextContent('Test Page');
   });
 });
