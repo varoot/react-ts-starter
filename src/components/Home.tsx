@@ -19,7 +19,7 @@ type ClassKeys = 'root' | 'header' | 'margin' | 'padding' | 'logo';
 
 const useStyles = makeStyles<ThemeType, Props, ClassKeys>(
   (theme) => ({
-    '@keyframes App-logo-spin': {
+    '@keyframes spin': {
       from: {
         transform: 'rotate(0deg)',
       },
@@ -32,7 +32,7 @@ const useStyles = makeStyles<ThemeType, Props, ClassKeys>(
       color: theme.palette.getContrastText(theme.palette.grey[900]),
     },
     logo: {
-      animation: 'App-logo-spin infinite 20s linear',
+      animation: '$spin infinite 20s linear',
       height: theme.spacing(10),
     },
     margin: {
