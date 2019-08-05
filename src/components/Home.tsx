@@ -15,10 +15,8 @@ interface Props {
   title?: string;
 }
 
-type ClassKeys = 'root' | 'header' | 'margin' | 'padding' | 'logo';
-
-const useStyles = makeStyles<ThemeType, Props, ClassKeys>(
-  (theme) => ({
+const useStyles = makeStyles(
+  (theme: ThemeType) => ({
     '@keyframes spin': {
       from: {
         transform: 'rotate(0deg)',
@@ -57,7 +55,7 @@ const Home: React.FC<Props> = (props) => {
     dispatch(
       snackbarPush({
         button: {
-          callback: () => {
+          callback: (): void => {
             // Snackbar is automatically dismissed when the button is clicked
           },
           label: 'Close',

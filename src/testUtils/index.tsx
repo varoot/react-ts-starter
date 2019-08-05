@@ -1,4 +1,4 @@
-import { RenderOptions, render } from '@testing-library/react';
+import { render, RenderOptions } from '@testing-library/react';
 import React from 'react';
 import { RedirectProps } from 'react-router';
 import AppProvider from '../AppProvider';
@@ -7,9 +7,9 @@ interface CustomRenderOptions extends RenderOptions {
   route?: RedirectProps['to'];
 }
 
-const customRender = (ui: React.ReactElement<unknown>, options: CustomRenderOptions = {}) =>
+const customRender = (ui: React.ReactElement<unknown>, options: CustomRenderOptions = {}): ReturnType<typeof render> =>
   render(ui, {
-    wrapper: ({ children }) => (
+    wrapper: ({ children }): React.ReactElement => (
       <AppProvider initialEntries={options.route === undefined ? undefined : [options.route]}>{children}</AppProvider>
     ),
     ...options,

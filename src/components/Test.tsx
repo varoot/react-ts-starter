@@ -6,11 +6,8 @@ import { Link as RouterLink } from 'react-router-dom';
 import routes from '../routes';
 import { ThemeType } from '../theme';
 
-type Props = {};
-type ClassKeys = 'root' | 'margin';
-
-const useStyles = makeStyles<ThemeType, Props, ClassKeys>(
-  (theme) => ({
+const useStyles = makeStyles(
+  (theme: ThemeType) => ({
     margin: {
       margin: theme.spacing(2, 0.5),
     },
@@ -23,7 +20,7 @@ const useStyles = makeStyles<ThemeType, Props, ClassKeys>(
   { name: 'Test' },
 );
 
-const Test: React.SFC<Props> = (props) => {
+const Test: React.FC = (props) => {
   const classes = useStyles(props);
   return (
     <div className={classes.root}>
@@ -42,5 +39,4 @@ const Test: React.SFC<Props> = (props) => {
   );
 };
 
-export type TestProps = Props;
 export default React.memo(Test);

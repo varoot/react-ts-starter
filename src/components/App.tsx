@@ -8,11 +8,8 @@ import NotFound from './NotFound';
 import Test from './Test';
 import TheSnackbar from './TheSnackbar';
 
-interface Props {}
-type ClassKeys = 'root';
-
-const useStyles = makeStyles<ThemeType, Props, ClassKeys>(
-  (theme) => ({
+const useStyles = makeStyles(
+  (theme: ThemeType) => ({
     '@global': {
       code: {
         color: theme.palette.secondary.main,
@@ -24,7 +21,7 @@ const useStyles = makeStyles<ThemeType, Props, ClassKeys>(
   { name: 'App' },
 );
 
-const App: React.FC<Props> = (props) => {
+const App: React.FC = (props) => {
   const classes = useStyles(props);
   return (
     <div className={classes.root}>
@@ -40,5 +37,4 @@ const App: React.FC<Props> = (props) => {
   );
 };
 
-export type AppProps = Props;
 export default App;

@@ -6,9 +6,7 @@ import { snackbarPop } from '../actions';
 import snackbarConfig from '../config/snackbarConfig';
 import { getSnackbarItemFirst } from '../selectors';
 
-interface Props {}
-
-const TheSnackbar: React.FC<Props> = (props) => {
+const TheSnackbar: React.FC = (props) => {
   const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState(false);
   const snackbarItem = useSelector(getSnackbarItemFirst);
@@ -23,14 +21,16 @@ const TheSnackbar: React.FC<Props> = (props) => {
 
   const checkExit = useCallback(() => dispatch(snackbarPop()), [dispatch]);
 
-  const actionButton = useMemo((): JSX.Element | undefined => {
+  const actionButton = useMemo((): JSX.Element | null => {
     if (snackbarItem === undefined || snackbarItem.button === undefined) {
-      return;
+      return null;
     }
 
-    const callback = (event: React.MouseEvent<HTMLElement>) => {
+    const callback = (event: React.MouseEvent<HTMLElement>): void => {
       handleClose(event, 'action');
-      snackbarItem.button!.callback();
+      if (snackbarItem.button) {
+        snackbarItem.button.callback();
+      }
     };
 
     return (

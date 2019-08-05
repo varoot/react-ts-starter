@@ -5,7 +5,12 @@
 yarn.lock text=auto
 
 # Binary files
+*.eot binary
 *.gif binary
 *.ico binary
 *.jpg binary
+*.otf binary
 *.png binary
+*.ttf binary
+*.woff binary
+*.woff2 binary

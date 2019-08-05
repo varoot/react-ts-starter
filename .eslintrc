@@ -1,0 +1,90 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "extends": ["airbnb", "plugin:@typescript-eslint/recommended", "react-app", "prettier"],
+  "plugins": ["@typescript-eslint", "import", "prettier"],
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
+  },
+  "rules": {
+    "@typescript-eslint/explicit-function-return-type": [
+      "error",
+      {
+        "allowTypedFunctionExpressions": true
+      }
+    ],
+    "@typescript-eslint/indent": ["off"],
+    "@typescript-eslint/no-explicit-any": ["error"],
+    "@typescript-eslint/prefer-for-of": ["error"],
+    "complexity": ["error", 11],
+    "eqeqeq": ["error", "always", { "null": "ignore" }],
+    "import/order": [
+      "error",
+      {
+        "groups": ["builtin", "external", "parent", "sibling", "index"],
+        "newlines-between": "never"
+      }
+    ],
+    "max-depth": ["error", 6],
+    "max-lines": ["error", { "max": 1000 }],
+    "max-params": ["error", 5],
+    "no-restricted-imports": [
+      "error",
+      {
+        "paths": [
+          {
+            "name": "@material-ui/core",
+            "message": "Please import each component separately."
+          },
+          {
+            "name": "@material-ui/icons",
+            "message": "Please import each icon component separately."
+          },
+          "lodash",
+          "rxjs"
+        ],
+        "patterns": ["@material-ui/*/*/*"]
+      }
+    ],
+    "no-undef": ["off"],
+    "prettier/prettier": ["error"],
+    "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
+    "react/jsx-key": ["error"],
+    "react/jsx-max-depth": ["error", { "max": 6 }],
+    "react/jsx-one-expression-per-line": ["off"],
+    "react/jsx-wrap-multilines": ["off"],
+    "react/prop-types": ["off"],
+    "spaced-comment": [
+      "error",
+      "always",
+      {
+        "line": {
+          "markers": ["/"],
+          "exceptions": ["-", "+", "/ <reference"]
+        },
+        "block": {
+          "markers": ["!"],
+          "exceptions": ["*"],
+          "balanced": true
+        }
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": ["*.stories.{j,t}s{,x}", "*.test.{j,t}s{,x}", "src/setupTests.ts", "src/testUtils/**/*.{j,t}s{,x}"],
+      "rules": {
+        "import/no-extraneous-dependencies": [
+          "error",
+          { "devDependencies": true, "optionalDependencies": true, "peerDependencies": true }
+        ]
+      }
+    }
+  ]
+}

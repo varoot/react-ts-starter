@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from '../testHelpers';
+import { render } from '../testUtils';
 import App from './App';
 
 describe('Component: App', () => {
