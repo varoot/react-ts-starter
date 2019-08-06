@@ -56,15 +56,27 @@
           "lodash",
           "rxjs"
         ],
-        "patterns": ["@material-ui/*/*/*", "!@material-ui/core/styles/*"]
+        "patterns": ["@material-ui/*/*/*", "!@material-ui/core/colors/*", "!@material-ui/core/styles/*"]
       }
     ],
     "no-undef": ["off"],
     "prettier/prettier": ["error"],
     "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
+    "react/jsx-indent": ["off"],
+    "react/jsx-indent-props": ["off"],
     "react/jsx-key": ["error"],
     "react/jsx-max-depth": ["error", { "max": 6 }],
+    "react/jsx-max-props-per-line": ["off"],
     "react/jsx-one-expression-per-line": ["off"],
+    "react/jsx-props-no-multi-spaces": ["off"],
+    "react/jsx-sort-props": [
+      "error",
+      {
+        "callbacksLast": true,
+        "reservedFirst": true,
+        "shorthandFirst": true
+      }
+    ],
     "react/jsx-wrap-multilines": ["off"],
     "react/prop-types": ["off"],
     "spaced-comment": [

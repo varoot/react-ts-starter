@@ -68,7 +68,7 @@ const Home: React.FC<Props> = (props) => {
   return (
     <div className={classes.root}>
       <div className={classNames([classes.header, classes.padding])}>
-        <img src={logoSvg} className={classes.logo} alt="logo" />
+        <img alt="logo" className={classes.logo} src={logoSvg} />
         <Typography color="inherit" component="h1" variant="h3">
           {title}
         </Typography>
@@ -81,7 +81,7 @@ const Home: React.FC<Props> = (props) => {
           Test Router
         </Link>
       </Typography>
-      <Button color="primary" onClick={testSnackbar} variant="contained">
+      <Button color="primary" variant="contained" onClick={testSnackbar}>
         Test Snackbar
       </Button>
     </div>

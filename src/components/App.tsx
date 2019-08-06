@@ -27,8 +27,8 @@ const App: React.FC = (props) => {
     <div className={classes.root}>
       <main>
         <Switch>
-          <Route exact path={routes.home} component={Home} />
-          <Route path={routes.test} component={Test} />
+          <Route exact component={Home} path={routes.home} />
+          <Route component={Test} path={routes.test} />
           <Route component={NotFound} />
         </Switch>
       </main>

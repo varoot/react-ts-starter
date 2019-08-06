@@ -34,7 +34,7 @@ const TheSnackbar: React.FC = (props) => {
     };
 
     return (
-      <Button color="secondary" onClick={callback} size="small">
+      <Button color="secondary" size="small" onClick={callback}>
         {snackbarItem.button.label}
       </Button>
     );
@@ -47,19 +47,19 @@ const TheSnackbar: React.FC = (props) => {
 
   return (
     <Snackbar
+      ContentProps={{
+        'aria-describedby': 'message-id',
+      }}
+      action={actionButton}
       anchorOrigin={{
         horizontal: 'left',
         vertical: 'bottom',
       }}
       autoHideDuration={duration}
-      action={actionButton}
       message={<span id="message-id">{snackbarItem === undefined ? '' : snackbarItem.message}</span>}
       open={isOpen}
       onClose={handleClose}
       onExited={checkExit}
-      ContentProps={{
-        'aria-describedby': 'message-id',
-      }}
     />
   );
 };
