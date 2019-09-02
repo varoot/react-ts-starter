@@ -9,15 +9,15 @@ interface ObjectWithSnackbarPayload extends ObjectWithPayload {
 }
 
 function isObject(obj: unknown): obj is Record<string, unknown> {
-  return obj && typeof obj === 'object';
+  return Boolean(obj) && typeof obj === 'object';
 }
 
 function hasPayload(obj: Record<string, unknown>): obj is ObjectWithPayload {
-  return obj.payload && typeof obj.payload === 'object';
+  return Boolean(obj.payload) && typeof obj.payload === 'object';
 }
 
 function hasSnackbarPayload(obj: ObjectWithPayload): obj is ObjectWithSnackbarPayload {
-  return obj.payload.snackbar && typeof obj.payload.snackbar === 'object';
+  return Boolean(obj.payload.snackbar) && typeof obj.payload.snackbar === 'object';
 }
 function isSnackbarAction(action: unknown): action is SnackbarAction {
   return (
