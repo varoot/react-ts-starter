@@ -10,7 +10,8 @@
       "node": {
         "extensions": [".js", ".jsx", ".ts", ".tsx"]
       }
-    }
+    },
+    "linkComponents": ["Link"]
   },
   "rules": {
     "@typescript-eslint/await-thenable": ["warn"],
@@ -105,24 +106,25 @@
   },
   "overrides": [
     {
-      "files": ["*.stories.{j,t}s{,x}", "*.test.{j,t}s{,x}", "src/setupTests.ts", "src/testUtils/**/*.{j,t}s{,x}"],
+      "files": [
+        "*.d.ts",
+        "*.stories.{j,t}s{,x}",
+        "*.test.{j,t}s{,x}",
+        "src/setupTests.ts",
+        "src/testUtils/**/*.{j,t}s{,x}"
+      ],
       "rules": {
         "import/no-extraneous-dependencies": [
           "error",
           { "devDependencies": true, "optionalDependencies": true, "peerDependencies": true }
-        ]
+        ],
+        "@typescript-eslint/no-explicit-any": ["off"]
       }
     },
     {
       "files": ["src/**/index.ts{,x}"],
       "rules": {
         "import/prefer-default-export": ["off"]
-      }
-    },
-    {
-      "files": ["*.d.ts"],
-      "rules": {
-        "@typescript-eslint/no-explicit-any": ["off"]
       }
     }
   ]
