@@ -78,6 +78,13 @@
     "react/jsx-max-props-per-line": ["off"],
     "react/jsx-one-expression-per-line": ["off"],
     "react/jsx-props-no-multi-spaces": ["off"],
+    "react/jsx-props-no-spreading": [
+      "error",
+      {
+        "html": "enforce",
+        "custom": "ignore"
+      }
+    ],
     "react/jsx-sort-props": [
       "error",
       {
