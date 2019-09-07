@@ -36,7 +36,7 @@
     "@typescript-eslint/prefer-includes": ["error"],
     "@typescript-eslint/prefer-string-starts-ends-with": ["error"],
     "@typescript-eslint/promise-function-async": ["error"],
-    "complexity": ["error", 11],
+    "complexity": ["error", 20],
     "eqeqeq": ["error", "always", { "null": "ignore" }],
     "import/order": [
       "error",
@@ -74,6 +74,7 @@
     ],
     "no-undef": ["off"],
     "prettier/prettier": ["error"],
+    "quotes": ["error", "single", { "avoidEscape": true, "allowTemplateLiterals": false }],
     "react/jsx-filename-extension": ["error", { "extensions": [".tsx"] }],
     "react/jsx-key": ["error"],
     "react/jsx-max-depth": ["error", { "max": 6 }],
