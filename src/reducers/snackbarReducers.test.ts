@@ -1,4 +1,4 @@
-import { snackbarPop } from '../actions';
+import { snackbarPop, snackbarPush } from '../actions';
 import snackbarReducers, { SnackbarState } from './snackbarReducers';
 
 describe('snackbarReducers', () => {
@@ -43,13 +43,7 @@ describe('snackbarReducers', () => {
       items: [{ message: 'First' }],
     };
 
-    const action = {
-      payload: {
-        otherProps: 'test',
-        snackbar: { message: 'Second' },
-      },
-      type: 'PUSH_SNACKBAR',
-    };
+    const action = snackbarPush({ message: 'Second' });
 
     const newState = snackbarReducers(oldState, action);
 
