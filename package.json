@@ -46,8 +46,12 @@
     "prettier": "^1.18.2",
     "typescript": "~3.5.3"
   },
-  "eslintConfig": {
-    "extends": "react-app"
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{j,t}s{,x}",
+      "!src/serviceWorker.ts",
+      "!src/**/*.d.ts"
+    ]
   },
   "browserslist": {
     "production": [
