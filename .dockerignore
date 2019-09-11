@@ -1,0 +1,17 @@
+.DS_Store
+.dockerignore
+.env.local
+.env.development
+.env.development.local
+.env.production.local
+.git
+.gitignore
+.vscode
+docker-compose.yml
+Dockerfile
+build/
+coverage/
+node_modules/
+README.md
+yarn-debug.log*
+yarn-error.log*

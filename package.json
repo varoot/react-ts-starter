@@ -22,6 +22,9 @@
     "format": "prettier --write \"src/**/*.ts{,x}\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "docker:build": "docker build -t $npm_package_name:$npm_package_version .",
+    "docker:run": "docker run -it -p 80:80 --rm $npm_package_name:$npm_package_version",
+    "docker:sh": "docker run -it $npm_package_name:$npm_package_version sh",
     "eject": "react-scripts eject"
   },
   "devDependencies": {
