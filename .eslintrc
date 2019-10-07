@@ -14,9 +14,7 @@
   "plugins": ["@typescript-eslint", "import", "prettier"],
   "settings": {
     "import/resolver": {
-      "node": {
-        "extensions": [".js", ".jsx", ".ts", ".tsx"]
-      }
+      "typescript": {}
     },
     "linkComponents": ["Link"]
   },
@@ -41,7 +39,7 @@
     "import/order": [
       "error",
       {
-        "groups": [["builtin", "external"], "parent", "sibling", "index"],
+        "groups": [["builtin", "external", "internal", "unknown"], "parent", "sibling", "index"],
         "newlines-between": "never"
       }
     ],
