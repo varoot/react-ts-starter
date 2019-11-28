@@ -1,7 +1,7 @@
 import Button from '@material-ui/core/Button';
 import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
-import makeStyles from '@material-ui/styles/makeStyles';
+import { makeStyles } from '@material-ui/core/styles';
 import classNames from 'classnames';
 import React, { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
@@ -9,14 +9,13 @@ import { Link as RouterLink } from 'react-router-dom';
 import { snackbarPush } from '../actions';
 import logoSvg from '../assets/logo.svg';
 import routes from '../routes';
-import { ThemeType } from '../theme';
 
 interface Props {
   title?: string;
 }
 
 const useStyles = makeStyles(
-  (theme: ThemeType) => ({
+  (theme) => ({
     '@keyframes spin': {
       from: {
         transform: 'rotate(0deg)',

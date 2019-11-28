@@ -12,7 +12,7 @@ const initialState: State = {
   items: [],
 };
 
-const snackbarReducers: Reducer<State> = (state = initialState, action: AppAction) => {
+const snackbarReducers: Reducer<State> = (state: State = initialState, action: AppAction) => {
   if (isSnackbarAction(action)) {
     return {
       items: [...state.items, action.payload.snackbar],

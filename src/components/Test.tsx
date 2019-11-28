@@ -1,13 +1,12 @@
 import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
-import makeStyles from '@material-ui/styles/makeStyles';
+import { makeStyles } from '@material-ui/core/styles';
 import React from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import routes from '../routes';
-import { ThemeType } from '../theme';
 
 const useStyles = makeStyles(
-  (theme: ThemeType) => ({
+  (theme) => ({
     margin: {
       margin: theme.spacing(2, 0.5),
     },

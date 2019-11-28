@@ -1,15 +1,14 @@
-import makeStyles from '@material-ui/styles/makeStyles';
+import { makeStyles } from '@material-ui/core/styles';
 import React from 'react';
 import { Route, Switch } from 'react-router';
 import routes from '../routes';
-import { ThemeType } from '../theme';
 import Home from './Home';
 import NotFound from './NotFound';
 import Test from './Test';
 import TheSnackbar from './TheSnackbar';
 
 const useStyles = makeStyles(
-  (theme: ThemeType) => ({
+  (theme) => ({
     '@global': {
       code: {
         color: theme.palette.secondary.main,
