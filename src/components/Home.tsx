@@ -2,7 +2,7 @@ import Button from '@material-ui/core/Button';
 import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import React, { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link as RouterLink } from 'react-router-dom';
@@ -66,7 +66,7 @@ const Home: React.FC<Props> = (props) => {
 
   return (
     <div className={classes.root}>
-      <div className={classNames([classes.header, classes.padding])}>
+      <div className={clsx(classes.header, classes.padding)}>
         <img alt="logo" className={classes.logo} src={logoSvg} />
         <Typography color="inherit" component="h1" variant="h3">
           {title}
