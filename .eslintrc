@@ -33,7 +33,7 @@
     "@typescript-eslint/prefer-for-of": ["error"],
     "@typescript-eslint/prefer-includes": ["error"],
     "@typescript-eslint/prefer-string-starts-ends-with": ["error"],
-    "@typescript-eslint/promise-function-async": ["error", { "allowAny": true }],
+    "@typescript-eslint/promise-function-async": ["error"],
     "complexity": ["error", 20],
     "eqeqeq": ["error", "always", { "null": "ignore" }],
     "import/order": [
