@@ -47,15 +47,15 @@ const TheSnackbar: React.FC = (props) => {
 
   return (
     <Snackbar
-      ContentProps={{
-        'aria-describedby': 'message-id',
-      }}
       action={actionButton}
       anchorOrigin={{
         horizontal: 'left',
         vertical: 'bottom',
       }}
       autoHideDuration={duration}
+      ContentProps={{
+        'aria-describedby': 'message-id',
+      }}
       message={<span id="message-id">{snackbarItem === undefined ? '' : snackbarItem.message}</span>}
       open={isOpen}
       onClose={handleClose}
