@@ -1,4 +1,4 @@
-import SnackbarAction from '../types/SnackbarAction';
+import { SnackbarMessageAction } from '../store/snackbar/types';
 
 interface ObjectWithPayload extends Record<string, unknown> {
   payload: Record<string, unknown>;
@@ -19,7 +19,8 @@ function hasPayload(obj: Record<string, unknown>): obj is ObjectWithPayload {
 function hasSnackbarPayload(obj: ObjectWithPayload): obj is ObjectWithSnackbarPayload {
   return Boolean(obj.payload.snackbar) && typeof obj.payload.snackbar === 'object';
 }
-function isSnackbarAction(action: unknown): action is SnackbarAction {
+
+function isSnackbarAction(action: unknown): action is SnackbarMessageAction {
   return (
     isObject(action) && hasPayload(action) && hasSnackbarPayload(action) && Boolean(action.payload.snackbar.message)
   );

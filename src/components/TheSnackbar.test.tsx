@@ -1,6 +1,6 @@
 import React from 'react';
-import { snackbarPop, snackbarPush } from '../actions';
 import store from '../store';
+import { snackbarPush } from '../store/snackbar/actions';
 import { act, fireEvent, render } from '../testUtils';
 import TheSnackbar from './TheSnackbar';
 
@@ -20,10 +20,12 @@ describe('Component: TheSnackbar', () => {
 
     // Check that the button is rendered
     const okBtn = getByText('OK');
-    expect(okBtn).toBeInTheDocument();
+    if (!(okBtn instanceof HTMLElement)) {
+      fail('OK button is not an HTML element');
+    }
 
     // Check that callback is triggered
-    fireEvent.click(okBtn as HTMLElement);
+    fireEvent.click(okBtn);
     expect(callback).toBeCalledTimes(1);
 
     act(() => {
@@ -53,14 +55,5 @@ describe('Component: TheSnackbar', () => {
     });
 
     expect(container).toHaveTextContent(/^$/);
-  });
-
-  it('should render only the first snackbar message', () => {
-    store.dispatch(snackbarPush({ message: 'First Message', isLong: true }));
-    store.dispatch(snackbarPush({ message: 'Another Snackbar' }));
-    const { container } = render(<TheSnackbar />);
-    expect(container).toHaveTextContent('First Message');
-    store.dispatch(snackbarPop());
-    store.dispatch(snackbarPop());
   });
 });

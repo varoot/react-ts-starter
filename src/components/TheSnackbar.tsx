@@ -2,14 +2,14 @@ import Button from '@material-ui/core/Button';
 import Snackbar from '@material-ui/core/Snackbar';
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { snackbarPop } from '../actions';
 import snackbarConfig from '../config/snackbarConfig';
-import { getSnackbarItemFirst } from '../selectors';
+import { snackbarPop } from '../store/snackbar/actions';
+import { getSnackbarItem } from '../store/snackbar/selectors';
 
 const TheSnackbar: React.FC = (props) => {
   const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState(false);
-  const snackbarItem = useSelector(getSnackbarItemFirst);
+  const snackbarItem = useSelector(getSnackbarItem);
 
   useEffect(() => setIsOpen(snackbarItem !== undefined), [snackbarItem]);
 
@@ -40,13 +40,11 @@ const TheSnackbar: React.FC = (props) => {
     );
   }, [handleClose, snackbarItem]);
 
-  const duration =
-    snackbarItem !== undefined && Boolean(snackbarItem.isLong)
-      ? snackbarConfig.duration.long
-      : snackbarConfig.duration.short;
+  const duration = snackbarItem?.isLong ? snackbarConfig.duration.long : snackbarConfig.duration.short;
 
   return (
     <Snackbar
+      key={snackbarItem?.id}
       action={actionButton}
       anchorOrigin={{
         horizontal: 'left',

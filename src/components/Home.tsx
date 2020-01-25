@@ -1,14 +1,14 @@
 import Button from '@material-ui/core/Button';
 import Link from '@material-ui/core/Link';
-import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
 import clsx from 'clsx';
 import React, { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link as RouterLink } from 'react-router-dom';
-import { snackbarPush } from '../actions';
 import logoSvg from '../assets/logo.svg';
 import routes from '../routes';
+import { snackbarPush } from '../store/snackbar/actions';
 
 interface Props {
   title?: string;

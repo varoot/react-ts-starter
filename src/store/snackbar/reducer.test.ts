@@ -1,10 +1,15 @@
-import { snackbarPop, snackbarPush } from '../actions';
-import snackbarReducers, { SnackbarState } from './snackbarReducers';
+import { snackbarPop, snackbarPush } from './actions';
+import snackbarReducers, { generateSnackbarId, resetSnackbarId } from './reducer';
+import { SnackbarState } from './types';
 
-describe('snackbarReducers', () => {
+describe('snackbar reducer', () => {
+  beforeEach(() => {
+    resetSnackbarId();
+  });
+
   it('should not change state for unknown actions', () => {
     const oldState: SnackbarState = {
-      items: [],
+      item: undefined,
     };
 
     const action = {
@@ -18,7 +23,7 @@ describe('snackbarReducers', () => {
 
   it('should add snackbar if exists on the payload', () => {
     const oldState: SnackbarState = {
-      items: [],
+      item: undefined,
     };
 
     const action = {
@@ -34,13 +39,13 @@ describe('snackbarReducers', () => {
     const newState = snackbarReducers(oldState, action);
 
     expect(newState).toEqual({
-      items: [{ message: 'Test Message' }],
+      item: { id: 1, message: 'Test Message' },
     });
   });
 
   it('should add new snackbar to the end of the list', () => {
     const oldState: SnackbarState = {
-      items: [{ message: 'First' }],
+      item: { id: generateSnackbarId(), message: 'First' },
     };
 
     const action = snackbarPush({ message: 'Second' });
@@ -48,13 +53,13 @@ describe('snackbarReducers', () => {
     const newState = snackbarReducers(oldState, action);
 
     expect(newState).toEqual({
-      items: [{ message: 'First' }, { message: 'Second' }],
+      item: { id: 2, message: 'Second' },
     });
   });
 
   it('should remove the first message with SnackbarPop action', () => {
     const oldState: SnackbarState = {
-      items: [{ message: 'First' }, { message: 'Second' }],
+      item: { id: generateSnackbarId(), message: 'First' },
     };
 
     const action = snackbarPop();
@@ -62,7 +67,7 @@ describe('snackbarReducers', () => {
     const newState = snackbarReducers(oldState, action);
 
     expect(newState).toEqual({
-      items: [{ message: 'Second' }],
+      item: undefined,
     });
   });
 });

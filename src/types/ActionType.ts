@@ -1,6 +1,6 @@
 enum ActionType {
-  SnackbarPop = 'SNACKBAR/POP',
-  SnackbarPush = 'SNACKBAR/PUSH',
+  SnackbarPop = 'Snackbar/Pop',
+  SnackbarPush = 'Snackbar/Push',
 }
 
 export default ActionType;
