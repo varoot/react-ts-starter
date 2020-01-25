@@ -8,6 +8,7 @@
     "format": "prettier --write \"src/**/*.ts{,x}\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:coverage": "react-scripts test --collectCoverage --watchAll=false",
     "docker:build": "docker build -t $npm_package_name:$npm_package_version .",
     "docker:run": "docker run -it -p 80:80 --rm $npm_package_name:$npm_package_version",
     "docker:sh": "docker run -it $npm_package_name:$npm_package_version sh",
@@ -53,7 +54,8 @@
     "collectCoverageFrom": [
       "src/**/*.{j,t}s{,x}",
       "!src/serviceWorker.ts",
-      "!src/**/*.d.ts"
+      "!src/**/*.d.ts",
+      "!src/types/*.ts"
     ]
   },
   "browserslist": {
