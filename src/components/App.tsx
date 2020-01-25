@@ -12,7 +12,7 @@ const useStyles = makeStyles(
     '@global': {
       code: {
         color: theme.palette.secondary.main,
-        fontFamily: 'Consolas, monospace',
+        fontFamily: 'source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace',
       },
     },
     root: {},

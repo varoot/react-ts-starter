@@ -31,6 +31,7 @@ const useStyles = makeStyles(
     logo: {
       animation: '$spin infinite 20s linear',
       height: theme.spacing(10),
+      pointerEvents: 'none',
     },
     margin: {
       margin: theme.spacing(2),

@@ -1,6 +1,4 @@
-// polyfill must come before all other imports
-import 'core-js/stable';
-
+import 'core-js/stable'; // polyfill must come before all other imports
 import React from 'react';
 import ReactDOM from 'react-dom';
 import AppProvider from './AppProvider';
@@ -11,7 +9,7 @@ ReactDOM.render(
   <AppProvider>
     <App />
   </AppProvider>,
-  document.getElementById('root') as HTMLElement,
+  document.getElementById('root'),
 );
 
 // If you want your app to work offline and load faster, you can change
