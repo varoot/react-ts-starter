@@ -1,5 +1,7 @@
-import { createStore, combineReducers } from 'redux';
-import snackbar from './snackbar/reducer';
+import { applyMiddleware, combineReducers, createStore } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import ReduxThunk from 'redux-thunk';
+import snackbar from './snackbar';
 
 const reducers = combineReducers({
   snackbar,
@@ -7,4 +9,4 @@ const reducers = combineReducers({
 
 export type RootState = ReturnType<typeof reducers>;
 
-export default createStore(reducers);
+export default createStore(reducers, composeWithDevTools(applyMiddleware(ReduxThunk)));

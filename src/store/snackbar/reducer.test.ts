@@ -1,5 +1,5 @@
 import { snackbarPop, snackbarPush } from './actions';
-import snackbarReducers, { generateSnackbarId, resetSnackbarId } from './reducer';
+import snackbarReducer, { generateSnackbarId, resetSnackbarId } from './reducer';
 import { SnackbarState } from './types';
 
 describe('snackbar reducer', () => {
@@ -16,7 +16,7 @@ describe('snackbar reducer', () => {
       type: 'TEST_ACTION',
     };
 
-    const newState = snackbarReducers(oldState, action);
+    const newState = snackbarReducer(oldState, action);
 
     expect(newState).toBe(oldState);
   });
@@ -36,7 +36,7 @@ describe('snackbar reducer', () => {
       type: 'TEST_ACTION',
     };
 
-    const newState = snackbarReducers(oldState, action);
+    const newState = snackbarReducer(oldState, action);
 
     expect(newState).toEqual({
       item: { id: 1, message: 'Test Message' },
@@ -50,7 +50,7 @@ describe('snackbar reducer', () => {
 
     const action = snackbarPush({ message: 'Second' });
 
-    const newState = snackbarReducers(oldState, action);
+    const newState = snackbarReducer(oldState, action);
 
     expect(newState).toEqual({
       item: { id: 2, message: 'Second' },
@@ -64,7 +64,7 @@ describe('snackbar reducer', () => {
 
     const action = snackbarPop();
 
-    const newState = snackbarReducers(oldState, action);
+    const newState = snackbarReducer(oldState, action);
 
     expect(newState).toEqual({
       item: undefined,

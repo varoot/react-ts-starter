@@ -18,7 +18,7 @@ export function generateSnackbarId(): number {
   return id;
 }
 
-const snackbarReducers: Reducer<SnackbarState> = (
+const snackbarReducer: Reducer<SnackbarState> = (
   state: SnackbarState = initialState,
   action: SnackbarAction,
 ): SnackbarState => {
@@ -38,4 +38,4 @@ const snackbarReducers: Reducer<SnackbarState> = (
   }
 };
 
-export default snackbarReducers;
+export default snackbarReducer;
