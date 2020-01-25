@@ -2,19 +2,6 @@
   "name": "react-ts-starter",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {
-    "@material-ui/core": "^4.8.3",
-    "@material-ui/icons": "^4.5.1",
-    "clsx": "^1.0.4",
-    "core-js": "^3.6.4",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-redux": "^7.1.3",
-    "react-router": "^5.1.2",
-    "react-router-dom": "^5.1.2",
-    "react-scripts": "^3.3.0",
-    "redux": "^4.0.5"
-  },
   "scripts": {
     "start": "react-scripts start",
     "lint": "eslint \"src/**/*.ts{,x}\"",
@@ -26,8 +13,21 @@
     "docker:sh": "docker run -it $npm_package_name:$npm_package_version sh",
     "eject": "react-scripts eject"
   },
+  "dependencies": {
+    "@material-ui/core": "^4.8.3",
+    "@material-ui/icons": "^4.5.1",
+    "clsx": "^1.0.2",
+    "core-js": "^3.6.4",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-redux": "^7.1.3",
+    "react-router": "^5.1.2",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "^3.3.0",
+    "redux": "^4.0.5"
+  },
   "devDependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/jest-dom": "^5.0.2",
     "@testing-library/react": "^9.4.0",
     "@types/classnames": "^2.2.9",
     "@types/jest": "^24.9.0",
