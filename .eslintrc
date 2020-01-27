@@ -36,7 +36,7 @@
     "@typescript-eslint/promise-function-async": ["error"],
     "complexity": ["error", 20],
     "eqeqeq": ["error", "always", { "null": "ignore" }],
-    "import/extensions": ["error", { "js": "never", "jsx": "never", "ts": "never", "tsx": "never" }],
+    "import/extensions": ["error", "always", { "js": "never", "jsx": "never", "ts": "never", "tsx": "never" }],
     "import/order": [
       "error",
       {
