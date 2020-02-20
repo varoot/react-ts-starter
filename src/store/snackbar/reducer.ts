@@ -1,5 +1,6 @@
 import { Reducer } from 'redux';
 import ActionType from '../../types/ActionType';
+import Counter from '../../utils/Counter';
 import isSnackbarAction from '../../utils/isSnackbarAction';
 import { SnackbarAction, SnackbarState } from './types';
 
@@ -7,16 +8,7 @@ const initialState: SnackbarState = {
   item: undefined,
 };
 
-let id = 0;
-
-export function resetSnackbarId(): void {
-  id = 0;
-}
-
-export function generateSnackbarId(): number {
-  id += 1;
-  return id;
-}
+export const counter = new Counter();
 
 const snackbarReducer: Reducer<SnackbarState> = (
   state: SnackbarState = initialState,
@@ -24,7 +16,7 @@ const snackbarReducer: Reducer<SnackbarState> = (
 ): SnackbarState => {
   if (isSnackbarAction(action)) {
     return {
-      item: { ...action.payload.snackbar, id: generateSnackbarId() },
+      item: { ...action.payload.snackbar, id: counter.next().value },
     };
   }
 

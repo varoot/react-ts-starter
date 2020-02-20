@@ -1,10 +1,10 @@
 import { snackbarPop, snackbarPush } from './actions';
-import snackbarReducer, { generateSnackbarId, resetSnackbarId } from './reducer';
+import snackbarReducer, { counter } from './reducer';
 import { SnackbarState } from './types';
 
 describe('snackbar reducer', () => {
   beforeEach(() => {
-    resetSnackbarId();
+    counter.reset();
   });
 
   it('should not change state for unknown actions', () => {
@@ -45,7 +45,7 @@ describe('snackbar reducer', () => {
 
   it('should add new snackbar to the end of the list', () => {
     const oldState: SnackbarState = {
-      item: { id: generateSnackbarId(), message: 'First' },
+      item: { id: counter.next().value, message: 'First' },
     };
 
     const action = snackbarPush({ message: 'Second' });
@@ -59,7 +59,7 @@ describe('snackbar reducer', () => {
 
   it('should remove the first message with SnackbarPop action', () => {
     const oldState: SnackbarState = {
-      item: { id: generateSnackbarId(), message: 'First' },
+      item: { id: counter.next().value, message: 'First' },
     };
 
     const action = snackbarPop();
