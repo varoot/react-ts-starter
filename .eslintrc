@@ -92,6 +92,7 @@
         "shorthandFirst": true
       }
     ],
+    "react/state-in-constructor": ["error", "never"],
     "react/prop-types": ["off"],
     "spaced-comment": [
       "error",
@@ -123,6 +124,7 @@
           "error",
           { "devDependencies": true, "optionalDependencies": true, "peerDependencies": true }
         ],
+        "@typescript-eslint/no-empty-function": ["off"],
         "@typescript-eslint/no-explicit-any": ["off"]
       }
     },
