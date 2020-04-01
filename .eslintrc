@@ -121,12 +121,21 @@
         "src/testUtils/**/*.{j,t}s{,x}"
       ],
       "rules": {
+        "global-require": ["off"],
         "import/no-extraneous-dependencies": [
           "error",
-          { "devDependencies": true, "optionalDependencies": true, "peerDependencies": true }
+          {
+            "devDependencies": true,
+            "optionalDependencies": true,
+            "peerDependencies": true
+          }
         ],
+        "no-console": ["off"],
+        "no-underscore-dangle": ["off"],
+        "@typescript-eslint/ban-ts-ignore": ["off"],
         "@typescript-eslint/no-empty-function": ["off"],
-        "@typescript-eslint/no-explicit-any": ["off"]
+        "@typescript-eslint/no-explicit-any": ["off"],
+        "@typescript-eslint/no-var-requires": ["off"]
       }
     },
     {
