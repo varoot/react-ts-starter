@@ -25,10 +25,7 @@ describe('Counter', () => {
   describe('.reset()', () => {
     it('should reset to initial value', () => {
       const counter = new Counter(10);
-      counter
-        .next()
-        .next()
-        .next();
+      counter.next().next().next();
       expect(counter.value).toBe(13);
       const sameCounter = counter.reset();
       expect(counter.value).toBe(10);
