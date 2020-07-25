@@ -1,6 +1,7 @@
 import { makeStyles } from '@material-ui/core/styles';
 import React, { FC } from 'react';
 import { Route, Switch } from 'react-router';
+import GlobalDialogs from '../components/GlobalDialogs';
 import GlobalSnackbar from '../components/GlobalSnackbar';
 import routes from '../routes';
 import Home from './Home';
@@ -31,6 +32,7 @@ const App: FC = (props) => {
           <Route component={NotFound} />
         </Switch>
       </main>
+      <GlobalDialogs />
       <GlobalSnackbar />
     </div>
   );

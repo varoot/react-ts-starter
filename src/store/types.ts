@@ -1,3 +1,4 @@
+import { DialogAction } from './dialog/types';
 import { SnackbarAction } from './snackbar/types';
 
-export type AppAction = SnackbarAction;
+export type AppAction = DialogAction | SnackbarAction;

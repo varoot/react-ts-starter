@@ -3,12 +3,17 @@ import Link from '@material-ui/core/Link';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import clsx from 'clsx';
-import React, { useCallback } from 'react';
+import React, { FC, memo, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link as RouterLink } from 'react-router-dom';
 import logoSvg from '../assets/logo.svg';
+import HelloDialog from '../dialogs/HelloDialog';
+import NameDialog from '../dialogs/NameDialog';
+import useOwnerId from '../hooks/useDialogOwnerId';
 import routes from '../routes';
+import { dialogOpen } from '../store/dialog/actions';
 import { snackbarPush } from '../store/snackbar/actions';
+import { ThunkDispatch } from '../types';
 
 interface Props {
   title?: string;
@@ -46,10 +51,11 @@ const useStyles = makeStyles(
   { name: 'Home' },
 );
 
-const Home: React.FC<Props> = (props) => {
+const Home: FC<Props> = (props) => {
   const { title } = props;
   const classes = useStyles(props);
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<ThunkDispatch>();
+  const ownerId = useOwnerId();
 
   const testSnackbar = useCallback(() => {
     dispatch(
@@ -64,6 +70,17 @@ const Home: React.FC<Props> = (props) => {
       }),
     );
   }, [dispatch]);
+
+  const testDialog = useCallback(async () => {
+    try {
+      const name = await dispatch(dialogOpen(ownerId, NameDialog));
+      if (name) {
+        await dispatch(dialogOpen(ownerId, HelloDialog, { name }));
+      }
+    } catch (err) {
+      // Ignore error
+    }
+  }, [dispatch, ownerId]);
 
   return (
     <div className={classes.root}>
@@ -96,4 +113,4 @@ Home.defaultProps = {
 };
 
 export type HomeProps = Props;
-export default React.memo(Home);
+export default memo(Home);
