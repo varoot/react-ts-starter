@@ -2,20 +2,20 @@ import React from 'react';
 import store from '../store';
 import { snackbarPush } from '../store/snackbar/actions';
 import { act, fireEvent, render } from '../testUtils';
-import TheSnackbar from './TheSnackbar';
+import GlobalSnackbar from './GlobalSnackbar';
 
 jest.useFakeTimers();
 
-describe('Component: TheSnackbar', () => {
+describe('GlobalSnackbar', () => {
   it('should render nothing by default', () => {
-    const { container } = render(<TheSnackbar />);
+    const { container } = render(<GlobalSnackbar />);
     expect(container).toHaveTextContent(/^$/);
   });
 
   it('should render the snackbar message', () => {
     const callback = jest.fn();
     store.dispatch(snackbarPush({ message: 'Test Snackbar', button: { callback, label: 'OK' } }));
-    const { container, getByText } = render(<TheSnackbar />);
+    const { container, getByText } = render(<GlobalSnackbar />);
     expect(container).toHaveTextContent('Test Snackbar');
 
     // Check that the button is rendered
@@ -37,7 +37,7 @@ describe('Component: TheSnackbar', () => {
 
   it('should not dismiss snackbar when clicking away', () => {
     store.dispatch(snackbarPush({ message: 'Test Clickaway' }));
-    const { container } = render(<TheSnackbar />);
+    const { container } = render(<GlobalSnackbar />);
 
     // Click away
     fireEvent.click(container);

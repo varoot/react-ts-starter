@@ -1,11 +1,11 @@
 import { makeStyles } from '@material-ui/core/styles';
-import React from 'react';
+import React, { FC } from 'react';
 import { Route, Switch } from 'react-router';
+import GlobalSnackbar from '../components/GlobalSnackbar';
 import routes from '../routes';
 import Home from './Home';
 import NotFound from './NotFound';
 import Test from './Test';
-import TheSnackbar from './TheSnackbar';
 
 const useStyles = makeStyles(
   (theme) => ({
@@ -20,7 +20,7 @@ const useStyles = makeStyles(
   { name: 'App' },
 );
 
-const App: React.FC = (props) => {
+const App: FC = (props) => {
   const classes = useStyles(props);
   return (
     <div className={classes.root}>
@@ -31,7 +31,7 @@ const App: React.FC = (props) => {
           <Route component={NotFound} />
         </Switch>
       </main>
-      <TheSnackbar />
+      <GlobalSnackbar />
     </div>
   );
 };

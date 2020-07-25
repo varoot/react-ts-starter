@@ -10,10 +10,7 @@ const initialState: SnackbarState = {
 
 export const counter = new Counter();
 
-const snackbarReducer: Reducer<SnackbarState> = (
-  state: SnackbarState = initialState,
-  action: SnackbarAction,
-): SnackbarState => {
+const snackbarReducer: Reducer<SnackbarState, SnackbarAction> = (state = initialState, action) => {
   if (isSnackbarAction(action)) {
     return {
       item: { ...action.payload.snackbar, id: counter.next().value },

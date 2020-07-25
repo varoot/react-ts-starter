@@ -1,6 +1,6 @@
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { ThemeProvider } from '@material-ui/core/styles';
-import React from 'react';
+import React, { ComponentType, FC } from 'react';
 import { Provider } from 'react-redux';
 import { MemoryRouterProps } from 'react-router';
 import { BrowserRouter, BrowserRouterProps, MemoryRouter } from 'react-router-dom';
@@ -11,12 +11,12 @@ interface Props {
   initialEntries?: MemoryRouterProps['initialEntries'];
 }
 
-let Router: React.ComponentClass<BrowserRouterProps | MemoryRouterProps, unknown> = BrowserRouter;
+let Router: ComponentType<BrowserRouterProps | MemoryRouterProps> = BrowserRouter;
 if (process.env.JEST_WORKER_ID !== undefined) {
   Router = MemoryRouter;
 }
 
-const AppProvider: React.FC<Props> = ({ children, initialEntries }) => {
+const AppProvider: FC<Props> = ({ children, initialEntries }) => {
   return (
     <Provider store={store}>
       <Router initialEntries={initialEntries}>

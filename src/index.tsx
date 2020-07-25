@@ -2,7 +2,7 @@ import 'core-js/stable'; // polyfill must come before all other imports
 import React from 'react';
 import ReactDOM from 'react-dom';
 import AppProvider from './AppProvider';
-import App from './components/App';
+import App from './pages/App';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(

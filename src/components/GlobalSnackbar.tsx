@@ -1,19 +1,19 @@
 import Button from '@material-ui/core/Button';
 import Snackbar from '@material-ui/core/Snackbar';
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import React, { FC, memo, MouseEvent, SyntheticEvent, useCallback, useEffect, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import snackbarConfig from '../config/snackbarConfig';
 import { snackbarPop } from '../store/snackbar/actions';
 import { getSnackbarItem } from '../store/snackbar/selectors';
 
-const TheSnackbar: React.FC = (props) => {
+const GlobalSnackbar: FC = () => {
   const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState(false);
   const snackbarItem = useSelector(getSnackbarItem);
 
   useEffect(() => setIsOpen(snackbarItem !== undefined), [snackbarItem]);
 
-  const handleClose = useCallback((event: React.SyntheticEvent<HTMLElement>, reason: string) => {
+  const handleClose = useCallback((event: SyntheticEvent<HTMLElement>, reason: string) => {
     if (reason !== 'clickaway') {
       setIsOpen(false);
     }
@@ -26,7 +26,7 @@ const TheSnackbar: React.FC = (props) => {
       return null;
     }
 
-    const callback = (event: React.MouseEvent<HTMLElement>): void => {
+    const callback = (event: MouseEvent<HTMLElement>): void => {
       handleClose(event, 'action');
       if (snackbarItem.button) {
         snackbarItem.button.callback();
@@ -62,4 +62,4 @@ const TheSnackbar: React.FC = (props) => {
   );
 };
 
-export default React.memo(TheSnackbar);
+export default memo(GlobalSnackbar);

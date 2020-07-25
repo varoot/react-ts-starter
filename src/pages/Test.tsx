@@ -1,7 +1,7 @@
 import Link from '@material-ui/core/Link';
-import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import React from 'react';
+import Typography from '@material-ui/core/Typography';
+import React, { FC, memo } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import routes from '../routes';
 
@@ -19,7 +19,7 @@ const useStyles = makeStyles(
   { name: 'Test' },
 );
 
-const Test: React.FC = (props) => {
+const Test: FC = (props) => {
   const classes = useStyles(props);
   return (
     <div className={classes.root}>
@@ -38,4 +38,4 @@ const Test: React.FC = (props) => {
   );
 };
 
-export default React.memo(Test);
+export default memo(Test);

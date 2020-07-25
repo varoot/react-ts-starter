@@ -1,4 +1,4 @@
-enum ActionType {
+export enum ActionType {
   SnackbarPop = 'Snackbar/Pop',
   SnackbarPush = 'Snackbar/Push',
 }

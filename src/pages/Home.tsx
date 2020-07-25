@@ -74,15 +74,18 @@ const Home: React.FC<Props> = (props) => {
         </Typography>
       </div>
       <Typography className={classes.margin}>
-        To get started, edit <code>src/components/App.tsx</code> and save to reload.
+        To get started, edit <code>src/pages/Home.tsx</code> and save to reload.
       </Typography>
       <Typography className={classes.margin}>
         <Link component={RouterLink} to={routes.test}>
           Test Router
         </Link>
       </Typography>
-      <Button color="primary" variant="contained" onClick={testSnackbar}>
+      <Button color="primary" onClick={testSnackbar}>
         Test Snackbar
+      </Button>
+      <Button color="primary" onClick={testDialog}>
+        Test Dialog
       </Button>
     </div>
   );

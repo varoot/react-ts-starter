@@ -1,7 +1,7 @@
 import Typography from '@material-ui/core/Typography';
-import React from 'react';
+import React, { FC, memo } from 'react';
 
-const NotFound: React.FC = () => {
+const NotFound: FC = () => {
   return (
     <div>
       <Typography component="h1" variant="h3">
@@ -14,4 +14,4 @@ const NotFound: React.FC = () => {
   );
 };
 
-export default React.memo(NotFound);
+export default memo(NotFound);
