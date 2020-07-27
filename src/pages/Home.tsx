@@ -7,8 +7,8 @@ import React, { FC, memo, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link as RouterLink } from 'react-router-dom';
 import logoSvg from '../assets/logo.svg';
-import HelloDialog from '../dialogs/HelloDialog';
 import NameDialog from '../dialogs/NameDialog';
+import SimpleDialog from '../dialogs/SimpleDialog';
 import useOwnerId from '../hooks/useDialogOwnerId';
 import routes from '../routes';
 import { dialogOpen } from '../store/dialog/actions';
@@ -73,10 +73,49 @@ const Home: FC<Props> = (props) => {
 
   const testDialog = useCallback(async () => {
     try {
-      const name = await dispatch(dialogOpen(ownerId, NameDialog));
-      if (name) {
-        await dispatch(dialogOpen(ownerId, HelloDialog, { name }));
+      const choice = await dispatch(
+        dialogOpen(ownerId, SimpleDialog, {
+          content: 'Do you want to input your name or use default name?',
+          actions: [
+            {
+              id: 'cancel',
+              label: 'Cancel',
+            },
+            {
+              id: 'no',
+              label: 'Use default name',
+              value: 'default',
+            },
+            {
+              id: 'yes',
+              label: 'Ask for my name',
+              value: 'ask',
+            },
+          ],
+        }),
+      );
+      if (!choice) return;
+
+      let name = 'World';
+      if (choice === 'ask') {
+        const inputName = await dispatch(dialogOpen(ownerId, NameDialog));
+        if (!inputName) return;
+        name = inputName;
       }
+
+      await dispatch(
+        dialogOpen(ownerId, SimpleDialog, {
+          title: `Hello ${name}`,
+          content: 'This is displayed using `SimpleDialog` component',
+          actions: [
+            {
+              autoFocus: true,
+              id: 'ok',
+              label: 'OK',
+            },
+          ],
+        }),
+      );
     } catch (err) {
       // Ignore error
     }

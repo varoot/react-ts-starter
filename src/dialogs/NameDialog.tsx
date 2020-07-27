@@ -19,7 +19,7 @@ const NameDialog: FC<DialogComponentProps<string>> = (props) => {
   const handleSubmit = useCallback(
     (event: FormEvent) => {
       event.preventDefault();
-      onResolve(name);
+      onResolve(name.trim());
     },
     [name, onResolve],
   );
