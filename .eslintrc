@@ -27,6 +27,50 @@
         "allowTypedFunctionExpressions": true
       }
     ],
+    "@typescript-eslint/naming-convention": [
+      "error",
+      {
+        "selector": "variable",
+        "format": ["strictCamelCase", "StrictPascalCase", "UPPER_CASE"]
+      },
+      {
+        "selector": "function",
+        "format": ["strictCamelCase", "StrictPascalCase"]
+      },
+      {
+        "selector": "parameter",
+        "format": ["strictCamelCase", "StrictPascalCase"],
+        "leadingUnderscore": "allow"
+      },
+      {
+        "selector": "property",
+        "format": ["camelCase", "PascalCase"],
+        "filter": {
+          "regex": "^[A-Z][A-Za-z]*([ \\-][A-Z][A-Za-z]*)+$",
+          "match": false
+        }
+      },
+      {
+        "selector": "parameterProperty",
+        "format": ["strictCamelCase", "StrictPascalCase"]
+      },
+      {
+        "selector": "method",
+        "format": ["strictCamelCase", "StrictPascalCase"]
+      },
+      {
+        "selector": "accessor",
+        "format": ["strictCamelCase"]
+      },
+      {
+        "selector": "enumMember",
+        "format": ["StrictPascalCase"]
+      },
+      {
+        "selector": "typeLike",
+        "format": ["StrictPascalCase"]
+      }
+    ],
     "@typescript-eslint/no-explicit-any": ["warn"],
     "@typescript-eslint/no-for-in-array": ["error"],
     "@typescript-eslint/no-misused-promises": ["error"],
@@ -34,6 +78,7 @@
     "@typescript-eslint/prefer-includes": ["error"],
     "@typescript-eslint/prefer-string-starts-ends-with": ["error"],
     "@typescript-eslint/promise-function-async": ["error"],
+    "camelcase": ["off"],
     "complexity": ["error", 20],
     "eqeqeq": ["error", "always", { "null": "ignore" }],
     "import/extensions": ["error", "always", { "js": "never", "jsx": "never", "ts": "never", "tsx": "never" }],
@@ -72,6 +117,7 @@
       }
     ],
     "no-undef": ["off"],
+    "no-underscore-dangle": ["off"],
     "prettier/prettier": ["error"],
     "quotes": ["error", "single", { "avoidEscape": true, "allowTemplateLiterals": false }],
     "react/jsx-filename-extension": ["error", { "extensions": [".tsx"] }],
@@ -89,12 +135,15 @@
       "error",
       {
         "callbacksLast": true,
+        "ignoreCase": true,
         "reservedFirst": true,
         "shorthandFirst": true
       }
     ],
-    "react/state-in-constructor": ["error", "never"],
     "react/prop-types": ["off"],
+    "react/require-default-props": ["off"],
+    "react/state-in-constructor": ["error", "never"],
+    "sort-vars": ["warn", { "ignoreCase": true }],
     "spaced-comment": [
       "error",
       "always",

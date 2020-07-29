@@ -26,7 +26,7 @@ type Config = {
   onUpdate?: (registration: ServiceWorkerRegistration) => void;
 };
 
-function registerValidSW(swUrl: string, config?: Config): void {
+function registerValidServiceWorker(swUrl: string, config?: Config): void {
   navigator.serviceWorker
     .register(swUrl)
     .then((registration) => {
@@ -87,7 +87,7 @@ function checkValidServiceWorker(swUrl: string, config?: Config): void {
         });
       } else {
         // Service worker found. Proceed as normal.
-        registerValidSW(swUrl, config);
+        registerValidServiceWorker(swUrl, config);
       }
     })
     .catch(() => {
@@ -123,7 +123,7 @@ export function register(config?: Config): void {
         });
       } else {
         // Is not localhost. Just register service worker
-        registerValidSW(swUrl, config);
+        registerValidServiceWorker(swUrl, config);
       }
     });
   }
