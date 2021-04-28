@@ -1,0 +1,12 @@
+{
+  "home": {
+    "editToReload": "Edit <0>{{filename}}</0> and save to reload.",
+    "learnReact": "Learn React",
+    "welcome": "Welcome to React"
+  },
+  "routingDemo": {
+    "header": "Routing Demo",
+    "intro": "This page uses Prompt component to show a popup dialog when user navigates away",
+    "routeChangeMessage": "Please confirm if you want to navigate away. This message can be customized via Prompt component."
+  }
+}

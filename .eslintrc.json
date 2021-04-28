@@ -1,0 +1,205 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "extends": [
+    "airbnb",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:import/errors",
+    "plugin:import/typescript",
+    "react-app",
+    "react-app/jest",
+    "plugin:prettier/recommended"
+  ],
+  "plugins": ["@typescript-eslint", "prettier"],
+  "settings": {
+    "import/resolver": {
+      "typescript": {}
+    },
+    "linkComponents": ["Link"]
+  },
+  "rules": {
+    "@typescript-eslint/await-thenable": ["warn"],
+    "@typescript-eslint/explicit-function-return-type": [
+      "warn",
+      {
+        "allowExpressions": true,
+        "allowTypedFunctionExpressions": true
+      }
+    ],
+    "@typescript-eslint/naming-convention": [
+      "error",
+      {
+        "selector": "variable",
+        "format": ["strictCamelCase", "StrictPascalCase", "UPPER_CASE"]
+      },
+      {
+        "selector": "function",
+        "format": ["strictCamelCase", "StrictPascalCase"]
+      },
+      {
+        "selector": "parameter",
+        "format": ["camelCase", "PascalCase"],
+        "leadingUnderscore": "allow"
+      },
+      {
+        "selector": "property",
+        "format": ["camelCase", "PascalCase"],
+        "filter": {
+          "regex": "^[A-Z][A-Za-z]*([ \\-][A-Z][A-Za-z]*)+$",
+          "match": false
+        }
+      },
+      {
+        "selector": "parameterProperty",
+        "format": ["strictCamelCase", "StrictPascalCase"]
+      },
+      {
+        "selector": "method",
+        "format": ["strictCamelCase", "StrictPascalCase"]
+      },
+      {
+        "selector": "accessor",
+        "format": ["strictCamelCase"]
+      },
+      {
+        "selector": "enumMember",
+        "format": ["StrictPascalCase"]
+      },
+      {
+        "selector": "typeLike",
+        "format": ["StrictPascalCase"]
+      }
+    ],
+    "@typescript-eslint/no-explicit-any": ["warn"],
+    "@typescript-eslint/no-for-in-array": ["error"],
+    "@typescript-eslint/no-misused-promises": ["error"],
+    "@typescript-eslint/no-redeclare": ["error"],
+    "@typescript-eslint/no-shadow": ["error"],
+    "@typescript-eslint/prefer-for-of": ["error"],
+    "@typescript-eslint/prefer-includes": ["error"],
+    "@typescript-eslint/prefer-string-starts-ends-with": ["error"],
+    "@typescript-eslint/promise-function-async": ["error"],
+    "camelcase": ["off"],
+    "complexity": ["error", 20],
+    "eqeqeq": ["error", "always", { "null": "ignore" }],
+    "import/extensions": ["error", "always", { "js": "never", "jsx": "never", "ts": "never", "tsx": "never" }],
+    "import/order": [
+      "error",
+      {
+        "groups": [["builtin", "external", "internal", "unknown"], "parent", ["sibling", "index"]],
+        "newlines-between": "never"
+      }
+    ],
+    "max-depth": ["error", 6],
+    "max-lines": ["error", { "max": 1000 }],
+    "max-params": ["error", 5],
+    "no-restricted-imports": [
+      "error",
+      {
+        "paths": [
+          {
+            "name": "@material-ui/core",
+            "message": "Please import each component separately."
+          },
+          {
+            "name": "@material-ui/icons",
+            "message": "Please import each icon component separately."
+          },
+          "lodash",
+          "rxjs"
+        ],
+        "patterns": ["@material-ui/*/*/*", "!@material-ui/core/colors/*", "!@material-ui/core/styles/*"]
+      }
+    ],
+    "no-param-reassign": [
+      "error",
+      {
+        "ignorePropertyModificationsFor": ["event"]
+      }
+    ],
+    "no-redeclare": ["off"],
+    "no-shadow": ["off"],
+    "no-undef": ["off"],
+    "no-underscore-dangle": ["off"],
+    "prettier/prettier": ["error"],
+    "quotes": ["error", "single", { "avoidEscape": true, "allowTemplateLiterals": false }],
+    "react/jsx-filename-extension": ["error", { "extensions": [".tsx"] }],
+    "react/jsx-key": ["error"],
+    "react/jsx-max-depth": ["error", { "max": 6 }],
+    "react/jsx-no-duplicate-props": ["error", { "ignoreCase": false }],
+    "react/jsx-props-no-spreading": [
+      "error",
+      {
+        "html": "enforce",
+        "custom": "ignore"
+      }
+    ],
+    "react/jsx-sort-props": [
+      "error",
+      {
+        "callbacksLast": true,
+        "ignoreCase": true,
+        "reservedFirst": true,
+        "shorthandFirst": true
+      }
+    ],
+    "react/jsx-uses-react": ["off"],
+    "react/prop-types": ["off"],
+    "react/react-in-jsx-scope": ["off"],
+    "react/require-default-props": ["off"],
+    "react/state-in-constructor": ["error", "never"],
+    "sort-vars": ["warn", { "ignoreCase": true }],
+    "spaced-comment": [
+      "error",
+      "always",
+      {
+        "line": {
+          "markers": ["=", "!", "/"],
+          "exceptions": ["-", "+", "/ <reference"]
+        },
+        "block": {
+          "markers": ["!", "=", "!", ":", "::"],
+          "exceptions": ["-", "+", "*"],
+          "balanced": true
+        }
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "*.d.ts",
+        "*.stories.{j,t}s{,x}",
+        "*.test.{j,t}s{,x}",
+        "src/setupTests.ts",
+        "src/testUtils/**/*.{j,t}s{,x}"
+      ],
+      "rules": {
+        "global-require": ["off"],
+        "import/no-extraneous-dependencies": [
+          "error",
+          {
+            "devDependencies": true,
+            "optionalDependencies": true,
+            "peerDependencies": true
+          }
+        ],
+        "no-console": ["off"],
+        "no-inner-declarations": ["off"],
+        "no-underscore-dangle": ["off"],
+        "@typescript-eslint/ban-ts-ignore": ["off"],
+        "@typescript-eslint/no-empty-function": ["off"],
+        "@typescript-eslint/no-explicit-any": ["off"],
+        "@typescript-eslint/no-var-requires": ["off"]
+      }
+    },
+    {
+      "files": ["src/**/index.ts{,x}"],
+      "rules": {
+        "import/prefer-default-export": ["off"]
+      }
+    }
+  ]
+}

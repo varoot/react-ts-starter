@@ -1,31 +1,46 @@
-import CssBaseline from '@material-ui/core/CssBaseline';
-import { ThemeProvider } from '@material-ui/core/styles';
-import React, { ComponentType, FC } from 'react';
-import { Provider } from 'react-redux';
-import { MemoryRouterProps } from 'react-router';
-import { BrowserRouter, BrowserRouterProps, MemoryRouter } from 'react-router-dom';
-import store from './store';
-import theme from './theme';
+import { FC, useCallback, useRef } from 'react';
+import { PromiseDialogContext } from './common/contexts/PromiseDialogContext';
+import { RouteChangeDialogContext, RouteChangeDialogOptionsAny } from './common/contexts/RouteChangeDialogContext';
+import NavigateAwayDialog from './common/dialogs/NavigateAwayDialog';
+import { usePromiseDialogProvider } from './common/hooks';
+import CoreProvider from './CoreProvider';
 
-interface Props {
-  initialEntries?: MemoryRouterProps['initialEntries'];
-}
+/**
+ * AppProvider is application top-level provider. It renders CoreProvider.
+ */
+const AppProvider: FC = ({ children }) => {
+  const { contextValue, dialogs } = usePromiseDialogProvider();
+  const { open } = contextValue;
 
-let Router: ComponentType<BrowserRouterProps | MemoryRouterProps> = BrowserRouter;
-if (process.env.JEST_WORKER_ID !== undefined) {
-  Router = MemoryRouter;
-}
+  // Note: Router does not allow updating getUserConfirmation so we store the options in this ref
+  const routeChangeDialogOptions = useRef<RouteChangeDialogOptionsAny | undefined>();
 
-const AppProvider: FC<Props> = ({ children, initialEntries }) => {
+  const getUserConfirmation = useCallback(
+    async (message: string, callback: (ok: boolean) => void) => {
+      const options: RouteChangeDialogOptionsAny = routeChangeDialogOptions.current || {
+        Component: NavigateAwayDialog,
+        props: { message },
+      };
+
+      try {
+        const ok = await open('AppProvider.getUserConfirmation', options.Component, options.props);
+        callback(!!ok);
+      } catch (error) {
+        callback(false);
+      }
+    },
+    [open],
+  );
+
   return (
-    <Provider store={store}>
-      <Router initialEntries={initialEntries}>
-        <ThemeProvider theme={theme}>
-          <CssBaseline />
+    <RouteChangeDialogContext.Provider value={routeChangeDialogOptions}>
+      <CoreProvider getUserConfirmation={getUserConfirmation}>
+        <PromiseDialogContext.Provider value={contextValue}>
           {children}
-        </ThemeProvider>
-      </Router>
-    </Provider>
+          {dialogs}
+        </PromiseDialogContext.Provider>
+      </CoreProvider>
+    </RouteChangeDialogContext.Provider>
   );
 };
 

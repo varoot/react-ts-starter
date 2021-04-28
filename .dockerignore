@@ -1,11 +1,14 @@
 .DS_Store
 .dockerignore
+.editorconfig
 .env.local
 .env.development
 .env.development.local
 .env.production.local
+.eslintrc.json
 .git
 .gitignore
+.prettierrc.json
 .vscode
 docker-compose.yml
 Dockerfile

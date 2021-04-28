@@ -1,0 +1,20 @@
+{
+  "appTitle": "React TypeScript Starter",
+  "navigatingAway": "Navigating away?",
+  "action": {
+    "cancel": "Cancel",
+    "discardChanges": "Discard Changes",
+    "ok": "OK"
+  },
+  "sidebar": {
+    "disclaimer": "Created by Varoot Phasuthadol",
+    "home": "Home",
+    "routingDemo": "Routing Demo"
+  },
+  "topBar": {
+    "menu": "Menu"
+  },
+  "unsavedChangesDialog": {
+    "header": "You have unsaved changes"
+  }
+}
