@@ -7,7 +7,7 @@
     "lint": "eslint \"src/**/*.ts{,x}\"",
     "format": "prettier --write \"src/**/*.ts{,x}\"",
     "build": "react-scripts build",
-    "test": "jest",
+    "test": "react-scripts test",
     "test:coverage": "react-scripts test --collectCoverage --watchAll=false",
     "docker:build": "docker build -t $npm_package_name:$npm_package_version .",
     "docker:run": "docker run -it -p 80:80 --rm $npm_package_name:$npm_package_version",
