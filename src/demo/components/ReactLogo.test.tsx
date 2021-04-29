@@ -1,4 +1,3 @@
-import React from 'react';
 import { render } from '../../testUtils';
 import ReactLogo from './ReactLogo';
 

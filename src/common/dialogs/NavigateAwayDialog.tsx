@@ -1,4 +1,4 @@
-import React, { FC, memo, useCallback, useMemo } from 'react';
+import { FC, memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { DialogComponentProps } from '../typings';
 import SimpleDialog, { SimpleDialogAction } from './SimpleDialog';

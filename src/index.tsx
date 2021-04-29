@@ -1,5 +1,5 @@
 import { enableMapSet } from 'immer';
-import React from 'react';
+import { StrictMode } from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import AppProvider from './AppProvider';
@@ -10,11 +10,11 @@ import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 enableMapSet();
 
 ReactDOM.render(
-  <React.StrictMode>
+  <StrictMode>
     <AppProvider>
       <App />
     </AppProvider>
-  </React.StrictMode>,
+  </StrictMode>,
   document.getElementById('root'),
 );
 
