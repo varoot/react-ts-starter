@@ -24,13 +24,12 @@ export function usePromiseDialog<C extends DialogComponentType<any, any>>(Compon
     };
   }, [closeAllPendingByParentToken, parentToken]);
 
-  const openWithComponent = useCallback(async (props) => open(parentToken, Component, props), [
-    Component,
-    open,
-    parentToken,
-  ]);
+  const openWithComponent = useCallback(
+    async (props) => open(parentToken, Component, props),
+    [Component, open, parentToken],
+  );
 
-  return (openWithComponent as unknown) as PromiseDialogOpenFunc<C>;
+  return openWithComponent as unknown as PromiseDialogOpenFunc<C>;
 }
 
 export default usePromiseDialog;
