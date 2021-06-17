@@ -1,8 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-
-interface CommonState {
-  spinnerTokens: Record<string, boolean>;
-}
+import { CommonState } from '../typings';
 
 const initialState: CommonState = { spinnerTokens: {} };
 

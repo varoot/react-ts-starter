@@ -1,7 +1,7 @@
-import { Resources, TFuncKey } from 'react-i18next';
+import { TFuncKey } from 'react-i18next';
 
 export interface SidebarItem {
-  title: TFuncKey<'common', Resources>;
+  title: TFuncKey<'common'>;
   link: string;
   exact?: boolean;
 }
