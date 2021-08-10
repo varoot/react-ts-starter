@@ -52,7 +52,8 @@ const Home: FC<Props> = (props) => {
       <Typography className={classes.margin}>
         <Trans
           components={[<code key="code" />]}
-          i18nKey="demo:home.editToReload"
+          i18nKey="home.editToReload"
+          ns="demo"
           values={{ filename: 'src/demo/pages/Home.tsx' }}
         />
       </Typography>

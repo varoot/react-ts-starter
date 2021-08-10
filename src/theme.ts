@@ -1,11 +1,6 @@
-import { createMuiTheme } from '@material-ui/core/styles';
-import { Shadows } from '@material-ui/core/styles/shadows';
+import { createTheme } from '@material-ui/core/styles';
 
-function createShadow(elevation: number): string {
-  return `0px ${elevation}px ${elevation}px -${Math.ceil(elevation / 2)}px rgba(0,0,0,0.2)`;
-}
-
-declare module '@material-ui/core/styles/createMuiTheme' {
+declare module '@material-ui/core/styles/createTheme' {
   /* eslint-disable @typescript-eslint/no-empty-interface */
   interface ThemeExtra {
     // Add theme's custom properties here
@@ -20,11 +15,10 @@ declare module '@material-ui/core/styles/createMuiTheme' {
   /* eslint-enable @typescript-eslint/no-empty-interface */
 }
 
-const theme = createMuiTheme({
+const theme = createTheme({
   media: {
     animation: '@media (prefers-reduced-motion: no-preference)',
   },
-  shadows: ['none', ...[...Array(24)].map((_, index) => createShadow(index + 1))] as Shadows,
 });
 
 theme.overrides = {
