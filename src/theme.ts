@@ -26,11 +26,10 @@ theme.overrides = {
   MuiCssBaseline: {
     '@global': {
       html: {
-        /*
-        // Not recommended: https://usabilitypost.com/2012/11/05/stop-fixing-font-smoothing/
-        MozOsxFontSmoothing: 'grayscale',
-        WebkitFontSmoothing: 'antialiased',
-        */
+        // Undo Material UI's font smoothing rules
+        // https://usabilitypost.com/2012/11/05/stop-fixing-font-smoothing/
+        MozOsxFontSmoothing: undefined,
+        WebkitFontSmoothing: undefined,
       },
       code: {
         color: theme.palette.secondary.main,
