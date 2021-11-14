@@ -6,11 +6,10 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import Menu from '@material-ui/icons/Menu';
-import { FC, memo, ReactNode } from 'react';
+import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 interface Props {
-  children?: ReactNode;
   onToggleSidebar: () => void;
 }
 
