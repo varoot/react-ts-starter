@@ -125,6 +125,13 @@
     "no-underscore-dangle": ["off"],
     "prettier/prettier": ["error"],
     "quotes": ["error", "single", { "avoidEscape": true, "allowTemplateLiterals": false }],
+    "react/function-component-definition": [
+      "error",
+      {
+        "namedComponents": "function-declaration",
+        "unnamedComponents": "arrow-function"
+      }
+    ],
     "react/jsx-filename-extension": ["error", { "extensions": [".tsx"] }],
     "react/jsx-key": ["error"],
     "react/jsx-max-depth": ["error", { "max": 6 }],

@@ -2,7 +2,7 @@ import Link from '@material-ui/core/Link';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import clsx from 'clsx';
-import { FC, memo } from 'react';
+import { memo } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import ReactLogo from '../components/ReactLogo';
 
@@ -36,7 +36,7 @@ const useStyles = makeStyles(
 /**
  * Demo home page
  */
-const Home: FC<Props> = (props) => {
+function Home(props: Props): JSX.Element {
   const { t } = useTranslation('demo');
   const { title = t('home.welcome') } = props;
   const classes = useStyles(props);
@@ -64,7 +64,7 @@ const Home: FC<Props> = (props) => {
       </Typography>
     </div>
   );
-};
+}
 
 export type HomeProps = Props;
 export default memo(Home);

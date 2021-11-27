@@ -1,6 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
-import { FC, memo, ReactNode, Suspense, useCallback, useState } from 'react';
+import { memo, ReactNode, Suspense, useCallback, useState } from 'react';
 import testIds from '../constants/testIds';
 import AppSidebar from './AppSidebar';
 import AppTopBar from './AppTopBar';
@@ -28,7 +28,7 @@ const useStyles = makeStyles(
 /**
  * Base layout for all pages
  */
-const AppLayout: FC<Props> = (props) => {
+function AppLayout(props: Props): JSX.Element {
   const { children } = props;
   const classes = useStyles(props);
 
@@ -53,7 +53,7 @@ const AppLayout: FC<Props> = (props) => {
       <SpinnerBackdrop />
     </div>
   );
-};
+}
 
 export type AppLayoutProps = Props;
 export default memo(AppLayout);

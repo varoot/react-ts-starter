@@ -1,11 +1,10 @@
-import { FC } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import AppLayout from './common/components/AppLayout';
 import routes from './common/constants/routes';
 import Home from './demo/pages/Home';
 import RoutingDemo from './demo/pages/RoutingDemo';
 
-const App: FC = () => {
+function App(): JSX.Element {
   return (
     <AppLayout>
       <Switch>
@@ -14,6 +13,6 @@ const App: FC = () => {
       </Switch>
     </AppLayout>
   );
-};
+}
 
 export default App;

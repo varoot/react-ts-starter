@@ -2,7 +2,7 @@ import Backdrop from '@material-ui/core/Backdrop';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
-import { FC, memo } from 'react';
+import { memo } from 'react';
 import { useSelector } from 'react-redux';
 import testIds from '../constants/testIds';
 import { commonSelectors } from '../store';
@@ -20,8 +20,8 @@ const useStyles = makeStyles(
 /**
  * Backdrop with spinner
  */
-const SpinnerBackdrop: FC = (props) => {
-  const classes = useStyles(props);
+function SpinnerBackdrop(): JSX.Element {
+  const classes = useStyles();
   const isShowingSpinner = useSelector(commonSelectors.selectIsShowingSpinner);
 
   return (
@@ -29,6 +29,6 @@ const SpinnerBackdrop: FC = (props) => {
       <CircularProgress color="inherit" />
     </Backdrop>
   );
-};
+}
 
 export default memo(SpinnerBackdrop);

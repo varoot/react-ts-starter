@@ -6,7 +6,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import Menu from '@material-ui/icons/Menu';
-import { FC, memo } from 'react';
+import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 interface Props {
@@ -32,7 +32,7 @@ const useStyles = makeStyles(
 /**
  * Base layout for all pages
  */
-const AppTopBar: FC<Props> = (props) => {
+function AppTopBar(props: Props): JSX.Element {
   const { onToggleSidebar } = props;
   const classes = useStyles(props);
   const { t } = useTranslation('common');
@@ -64,7 +64,7 @@ const AppTopBar: FC<Props> = (props) => {
       </AppBar>
     </header>
   );
-};
+}
 
 export type AppTopBarProps = Props;
 export default memo(AppTopBar);

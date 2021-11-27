@@ -1,11 +1,15 @@
-import { FC } from 'react';
+import { ReactNode } from 'react';
 import { PromiseDialogContext } from './common/contexts/PromiseDialogContext';
 import { usePromiseDialogProvider } from './common/hooks';
+
+interface Props {
+  children?: ReactNode;
+}
 
 /**
  * PromiseDialogProvider renders dialogs and provides PromiseDialog context
  */
-const PromiseDialogProvider: FC = ({ children }) => {
+function PromiseDialogProvider({ children }: Props): JSX.Element {
   const { contextValue, dialogs } = usePromiseDialogProvider();
   return (
     <PromiseDialogContext.Provider value={contextValue}>
@@ -13,6 +17,6 @@ const PromiseDialogProvider: FC = ({ children }) => {
       {dialogs}
     </PromiseDialogContext.Provider>
   );
-};
+}
 
 export default PromiseDialogProvider;

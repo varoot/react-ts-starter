@@ -2,7 +2,7 @@ import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import { FC, useCallback, useState } from 'react';
+import { useCallback, useState } from 'react';
 import PromiseDialogProvider from '../../PromiseDialogProvider';
 import { fireEvent, render, waitFor } from '../../testUtils';
 import { DialogComponentProps } from '../typings';
@@ -13,7 +13,7 @@ describe('usePromiseDialog', () => {
     message: string;
   }
 
-  const TestDialog: FC<DialogComponentProps<boolean>> = (props) => {
+  function TestDialog(props: DialogComponentProps<boolean>): JSX.Element {
     const { onResolve, ...otherProps } = props;
     return (
       <Dialog {...otherProps}>
@@ -23,9 +23,9 @@ describe('usePromiseDialog', () => {
         </DialogActions>
       </Dialog>
     );
-  };
+  }
 
-  const TestDialogWithMessage: FC<TestDialogWithMessageProps> = (props) => {
+  function TestDialogWithMessage(props: TestDialogWithMessageProps): JSX.Element {
     const { onResolve, message, ...otherProps } = props;
     return (
       <Dialog {...otherProps}>
@@ -36,9 +36,9 @@ describe('usePromiseDialog', () => {
         </DialogActions>
       </Dialog>
     );
-  };
+  }
 
-  const TestPage: FC = () => {
+  function TestPage(): JSX.Element {
     const openTestDialog = usePromiseDialog(TestDialog);
     const openTestDialogWithMessage = usePromiseDialog(TestDialogWithMessage);
     const [result, setResult] = useState('');
@@ -64,7 +64,7 @@ describe('usePromiseDialog', () => {
         <Button onClick={testDialogWithMessage}>Test dialog with message</Button>
       </div>
     );
-  };
+  }
 
   it('should open dialog when function is called', async () => {
     const { getByRole, queryByText, unmount } = render(<TestPage />, { wrapper: PromiseDialogProvider });

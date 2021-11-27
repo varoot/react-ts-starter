@@ -2,7 +2,7 @@ import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import { FC, memo } from 'react';
+import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { DialogComponentProps } from '../typings';
 
@@ -11,7 +11,7 @@ type Props = DialogComponentProps<boolean>;
 /**
  * "You have unsaved changes" dialog
  */
-const UnsavedChangesDialog: FC<Props> = (props) => {
+function UnsavedChangesDialog(props: Props): JSX.Element {
   const { open, onClose, onExited, onResolve } = props;
   const { t } = useTranslation('common');
 
@@ -28,7 +28,7 @@ const UnsavedChangesDialog: FC<Props> = (props) => {
       </DialogActions>
     </Dialog>
   );
-};
+}
 
 export type UnsavedChangesDialogProps = Props;
 export default memo(UnsavedChangesDialog);

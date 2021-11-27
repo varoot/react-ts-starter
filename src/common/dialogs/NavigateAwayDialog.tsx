@@ -1,4 +1,4 @@
-import { FC, memo, useCallback, useMemo } from 'react';
+import { memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { DialogComponentProps } from '../typings';
 import SimpleDialog, { SimpleDialogAction } from './SimpleDialog';
@@ -11,7 +11,7 @@ interface Props extends DialogComponentProps<boolean> {
 /**
  * Dialog for navigating away from route
  */
-const NavigateAwayDialog: FC<Props> = (props) => {
+function NavigateAwayDialog(props: Props): JSX.Element {
   const { message, onClose, onExited, onResolve, open } = props;
   const { t } = useTranslation('common');
 
@@ -51,7 +51,7 @@ const NavigateAwayDialog: FC<Props> = (props) => {
       onResolve={handleResolve}
     />
   );
-};
+}
 
 export type NavigateAwayDialogProps = Props;
 export default memo(NavigateAwayDialog);

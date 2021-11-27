@@ -4,7 +4,7 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import { FC, isValidElement, memo, ReactNode } from 'react';
+import { isValidElement, memo, ReactNode } from 'react';
 import { useRefFocus } from '../hooks';
 import { DialogComponentProps } from '../typings';
 
@@ -31,7 +31,7 @@ interface Props extends DialogComponentProps<string>, Pick<DialogProps, 'fullWid
 /**
  * Render dialog with text message and buttons
  */
-const SimpleDialog: FC<Props> = (props) => {
+function SimpleDialog(props: Props): JSX.Element {
   const { actions, content, maxWidth, onResolve, title, ...otherProps } = props;
   const [buttonRef, focusButton] = useRefFocus<HTMLButtonElement>();
 
@@ -59,7 +59,7 @@ const SimpleDialog: FC<Props> = (props) => {
       </DialogActions>
     </Dialog>
   );
-};
+}
 
 export type SimpleDialogProps = Props;
 export default memo(SimpleDialog);

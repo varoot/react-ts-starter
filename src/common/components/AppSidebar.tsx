@@ -10,7 +10,7 @@ import Typography from '@material-ui/core/Typography';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import ChevronLeft from '@material-ui/icons/ChevronLeft';
 import ChevronRight from '@material-ui/icons/ChevronRight';
-import { FC, memo } from 'react';
+import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router-dom';
 import sidebarItems from '../constants/sidebarItems';
@@ -53,7 +53,7 @@ const useStyles = makeStyles(
 /**
  * Base layout for all pages
  */
-const AppSidebar: FC<Props> = (props) => {
+function AppSidebar(props: Props): JSX.Element {
   const { onClose, open } = props;
   const classes = useStyles(props);
   const { t } = useTranslation('common');
@@ -99,7 +99,7 @@ const AppSidebar: FC<Props> = (props) => {
       </div>
     </Drawer>
   );
-};
+}
 
 export type AppSidebarProps = Props;
 export default memo(AppSidebar);

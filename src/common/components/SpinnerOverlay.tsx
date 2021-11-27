@@ -1,4 +1,4 @@
-import { FC, memo, useEffect } from 'react';
+import { memo, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useUniqueToken } from '../hooks';
 import { commonActions } from '../store';
@@ -11,7 +11,7 @@ interface Props {
 /**
  * Activate global spinner while mounted
  */
-const SpinnerOverlay: FC<Props> = (props) => {
+function SpinnerOverlay(props: Props): JSX.Element | null {
   const { id } = props;
   const dispatch = useDispatch();
 
@@ -26,7 +26,7 @@ const SpinnerOverlay: FC<Props> = (props) => {
   }, [token, dispatch]);
 
   return null;
-};
+}
 
 export type SpinnerOverlayProps = Props;
 export default memo(SpinnerOverlay);

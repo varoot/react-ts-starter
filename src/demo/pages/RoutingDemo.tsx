@@ -1,6 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import { FC, memo } from 'react';
+import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import routes from '../../common/constants/routes';
 import { useRouteChangeDialog } from '../../common/hooks';
@@ -21,9 +21,9 @@ const useStyles = makeStyles(
 /**
  * Routing demo
  */
-const RoutingDemo: FC = (props) => {
+function RoutingDemo(): JSX.Element {
   const { t } = useTranslation('demo');
-  const classes = useStyles(props);
+  const classes = useStyles();
   const Prompt = useRouteChangeDialog();
 
   return (
@@ -42,6 +42,6 @@ const RoutingDemo: FC = (props) => {
       />
     </div>
   );
-};
+}
 
 export default memo(RoutingDemo);

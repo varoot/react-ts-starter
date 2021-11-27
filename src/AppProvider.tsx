@@ -1,14 +1,19 @@
-import { FC, useCallback, useRef } from 'react';
+import { ReactNode, useCallback, useRef } from 'react';
 import { PromiseDialogContext } from './common/contexts/PromiseDialogContext';
 import { RouteChangeDialogContext, RouteChangeDialogOptionsAny } from './common/contexts/RouteChangeDialogContext';
 import NavigateAwayDialog from './common/dialogs/NavigateAwayDialog';
 import { usePromiseDialogProvider } from './common/hooks';
 import CoreProvider from './CoreProvider';
 
+interface Props {
+  children?: ReactNode;
+}
+
 /**
  * AppProvider is application top-level provider. It renders CoreProvider.
  */
-const AppProvider: FC = ({ children }) => {
+function AppProvider(props: Props): JSX.Element {
+  const { children } = props;
   const { contextValue, dialogs } = usePromiseDialogProvider();
   const { open } = contextValue;
 
@@ -42,6 +47,6 @@ const AppProvider: FC = ({ children }) => {
       </CoreProvider>
     </RouteChangeDialogContext.Provider>
   );
-};
+}
 
 export default AppProvider;

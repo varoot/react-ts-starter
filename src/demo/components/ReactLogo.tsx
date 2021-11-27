@@ -1,6 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
-import { FC, memo } from 'react';
+import { memo } from 'react';
 import logoSvg from '../assets/logo.svg';
 
 interface Props {
@@ -34,12 +34,12 @@ const useStyles = makeStyles(
 /**
  * Spinning React logo
  */
-const ReactLogo: FC<Props> = (props) => {
+function ReactLogo(props: Props): JSX.Element {
   const { className, spinning } = props;
   const classes = useStyles(props);
 
   return <img alt="logo" className={clsx(classes.root, className, { [classes.spinning]: spinning })} src={logoSvg} />;
-};
+}
 
 export type ReactLogoProps = Props;
 export default memo(ReactLogo);
