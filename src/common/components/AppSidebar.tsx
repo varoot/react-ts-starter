@@ -1,5 +1,6 @@
 import ChevronLeft from '@mui/icons-material/ChevronLeft';
 import ChevronRight from '@mui/icons-material/ChevronRight';
+import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
@@ -10,7 +11,6 @@ import { useTheme } from '@mui/material/styles';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import makeStyles from '@mui/styles/makeStyles';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router-dom';
@@ -23,69 +23,55 @@ interface Props {
 
 const drawerWidth = 240;
 
-const useStyles = makeStyles(
-  (theme) => ({
-    root: {
-      width: drawerWidth,
-      flexShrink: 0,
-    },
-    drawerPaper: {
-      width: drawerWidth,
-    },
-    drawerContainer: {
-      overflow: 'auto',
-    },
-    menuItem: {
-      [theme.breakpoints.up('sm')]: {
-        padding: theme.spacing(1, 3),
-      },
-    },
-    menuItemActive: {
-      color: theme.palette.primary.main,
-    },
-    toolbar: {
-      borderBottom: `1px solid ${theme.palette.divider}`,
-      justifyContent: 'flex-end',
-    },
-  }),
-  { name: 'AppSidebar' },
-);
-
 /**
  * Base layout for all pages
  */
 function AppSidebar(props: Props): JSX.Element {
   const { onClose, open } = props;
-  const classes = useStyles(props);
   const { t } = useTranslation('common');
   const theme = useTheme();
   const isDrawerPermanent = useMediaQuery(theme.breakpoints.up('lg'));
 
   return (
     <Drawer
-      classes={{
-        paper: classes.drawerPaper,
-      }}
-      className={classes.root}
       open={open}
+      sx={{
+        flexShrink: 0,
+        width: drawerWidth,
+        '& .MuiDrawer-paper': {
+          width: drawerWidth,
+        },
+      }}
       variant={isDrawerPermanent ? 'permanent' : 'temporary'}
       onClose={onClose}
     >
-      <Toolbar className={classes.toolbar}>
+      <Toolbar
+        sx={{
+          borderBottom: 1,
+          borderColor: 'divider',
+          justifyContent: 'flex-end',
+        }}
+      >
         <IconButton edge="end" size="large" onClick={onClose}>
           {theme.direction === 'ltr' ? <ChevronLeft /> : <ChevronRight />}
         </IconButton>
       </Toolbar>
-      <div className={classes.drawerContainer}>
+      <Box sx={{ overflow: 'auto' }}>
         <List>
           {sidebarItems.map(({ exact, link, title }) => (
             <ListItem
               key={title}
               button
-              activeClassName={classes.menuItemActive}
-              className={classes.menuItem}
+              activeClassName="active"
               component={NavLink}
               exact={exact}
+              sx={{
+                px: { sm: 3 },
+                py: { sm: 1 },
+                '&.active': {
+                  color: 'primary.main',
+                },
+              }}
               to={link}
               onClick={onClose}
             >
@@ -97,7 +83,7 @@ function AppSidebar(props: Props): JSX.Element {
         <Toolbar>
           <Typography variant="caption">{t('sidebar.disclaimer')}</Typography>
         </Toolbar>
-      </div>
+      </Box>
     </Drawer>
   );
 }

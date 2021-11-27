@@ -10,11 +10,10 @@ See [create-react-app original README](https://github.com/facebookincubator/crea
 - [TypeScript](http://www.typescriptlang.org)
 - [Redux](https://redux.js.org/) - State management library
 - [React Router](https://reacttraining.com/react-router/core) - Routing library
-- [Material UI](https://material-ui.com/) - UI components for Material Design
+- [Material UI](https://mui.com/) - UI components for Material Design
 - [react-i18next](https://react.i18next.com/) - Internationalization library
 - [lodash](https://lodash.com/) - Collection of common utility functions
 - [Immer](https://immerjs.github.io/immer/) - Immutable state library
-- [clsx](https://github.com/lukeed/clsx) - Utility function for joining class names
 
 ## Development Tools
 

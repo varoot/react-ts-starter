@@ -1,15 +1,10 @@
 import CssBaseline from '@mui/material/CssBaseline';
-import { StyledEngineProvider, Theme, ThemeProvider } from '@mui/material/styles';
+import { ThemeProvider } from '@mui/material/styles';
 import { ComponentType, ReactNode } from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter, BrowserRouterProps, MemoryRouter, MemoryRouterProps } from 'react-router-dom';
 import { store } from './store';
 import theme from './theme';
-
-declare module '@mui/styles/defaultTheme' {
-  // eslint-disable-next-line @typescript-eslint/no-empty-interface
-  interface DefaultTheme extends Theme {}
-}
 
 interface Props {
   children?: ReactNode;
@@ -35,12 +30,10 @@ function CoreProvider(props: Props): JSX.Element {
   return (
     <Provider store={store}>
       <Router getUserConfirmation={getUserConfirmation} initialEntries={initialEntries}>
-        <StyledEngineProvider injectFirst>
-          <ThemeProvider theme={theme}>
-            <CssBaseline enableColorScheme />
-            {children}
-          </ThemeProvider>
-        </StyledEngineProvider>
+        <ThemeProvider theme={theme}>
+          <CssBaseline enableColorScheme />
+          {children}
+        </ThemeProvider>
       </Router>
     </Provider>
   );

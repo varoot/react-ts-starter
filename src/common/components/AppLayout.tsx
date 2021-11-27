@@ -1,5 +1,5 @@
+import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
-import makeStyles from '@mui/styles/makeStyles';
 import { memo, ReactNode, Suspense, useCallback, useState } from 'react';
 import testIds from '../constants/testIds';
 import AppSidebar from './AppSidebar';
@@ -11,26 +11,11 @@ interface Props {
   children?: ReactNode;
 }
 
-const useStyles = makeStyles(
-  (theme) => ({
-    root: {},
-    body: {
-      display: 'flex',
-    },
-    main: {
-      flex: 1,
-      minWidth: 0,
-    },
-  }),
-  { name: 'AppLayout' },
-);
-
 /**
  * Base layout for all pages
  */
 function AppLayout(props: Props): JSX.Element {
   const { children } = props;
-  const classes = useStyles(props);
 
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
@@ -39,16 +24,16 @@ function AppLayout(props: Props): JSX.Element {
   }, []);
 
   return (
-    <div className={classes.root}>
+    <div>
       <Suspense fallback={<SpinnerOverlay id="AppLayout-suspense" />}>
         <AppTopBar onToggleSidebar={toggleSidebar} />
-        <div className={classes.body}>
+        <Box sx={{ display: 'flex' }}>
           <AppSidebar open={isSidebarOpen} onClose={toggleSidebar} />
-          <main className={classes.main} data-testid={testIds.app.main}>
+          <Box component="main" data-testid={testIds.app.main} sx={{ flex: 1, minWidth: 0 }}>
             <Toolbar />
             {children}
-          </main>
-        </div>
+          </Box>
+        </Box>
       </Suspense>
       <SpinnerBackdrop />
     </div>

@@ -1,33 +1,19 @@
+import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import makeStyles from '@mui/styles/makeStyles';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import routes from '../../common/constants/routes';
 import { useRouteChangeDialog } from '../../common/hooks';
-
-const useStyles = makeStyles(
-  (theme) => ({
-    root: {
-      padding: theme.spacing(2),
-
-      [theme.breakpoints.up('sm')]: {
-        padding: theme.spacing(3),
-      },
-    },
-  }),
-  { name: 'RoutingDemo' },
-);
 
 /**
  * Routing demo
  */
 function RoutingDemo(): JSX.Element {
   const { t } = useTranslation('demo');
-  const classes = useStyles();
   const Prompt = useRouteChangeDialog();
 
   return (
-    <div className={classes.root}>
+    <Box sx={{ p: { xs: 2, sm: 3 } }}>
       <Typography gutterBottom component="h2" variant="h4">
         {t('routingDemo.header')}
       </Typography>
@@ -40,7 +26,7 @@ function RoutingDemo(): JSX.Element {
           return false;
         }}
       />
-    </div>
+    </Box>
   );
 }
 
