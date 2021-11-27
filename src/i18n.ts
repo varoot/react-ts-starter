@@ -4,42 +4,9 @@ import Backend from 'i18next-http-backend';
 import { initReactI18next } from 'react-i18next';
 
 declare module 'react-i18next' {
-  interface CustomTypeOptions {
-    defaultNS: 'common';
-    resources: {
-      common: {
-        appTitle: string;
-        navigatingAway: string;
-        action: {
-          cancel: string;
-          discardChanges: string;
-          ok: string;
-        };
-        sidebar: {
-          disclaimer: string;
-          home: string;
-          routingDemo: string;
-        };
-        topBar: {
-          menu: string;
-        };
-        unsavedChangesDialog: {
-          header: string;
-        };
-      };
-      demo: {
-        home: {
-          editToReload: string;
-          learnReact: string;
-          welcome: string;
-        };
-        routingDemo: {
-          header: string;
-          intro: string;
-          routeChangeMessage: string;
-        };
-      };
-    };
+  interface Resources {
+    common: typeof import('../public/locales/en/common.json');
+    demo: typeof import('../public/locales/en/demo.json');
   }
 }
 
