@@ -1,13 +1,13 @@
-import { DialogProps } from '@material-ui/core/Dialog';
+import { TransitionProps } from '@mui/material/transitions';
 import { ComponentType, SyntheticEvent } from 'react';
 
 export type DialogResolveFunc<T> = (value?: T | PromiseLike<T> | undefined) => void;
 
 export interface DialogComponentProps<T> {
   onClose: (event: SyntheticEvent, reason?: 'backdropClick' | 'escapeKeyDown') => void;
-  onExited: DialogProps['onExited'];
   onResolve: DialogResolveFunc<T>;
   open: boolean;
+  TransitionProps?: TransitionProps;
 }
 
 export type DialogComponentType<T, P> = ComponentType<DialogComponentProps<T> & P>;

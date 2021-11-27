@@ -1,7 +1,7 @@
-import Button from '@material-ui/core/Button';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogTitle from '@material-ui/core/DialogTitle';
+import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogTitle from '@mui/material/DialogTitle';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { DialogComponentProps } from '../typings';
@@ -12,11 +12,11 @@ type Props = DialogComponentProps<boolean>;
  * "You have unsaved changes" dialog
  */
 function UnsavedChangesDialog(props: Props): JSX.Element {
-  const { open, onClose, onExited, onResolve } = props;
+  const { open, onClose, onResolve, TransitionProps } = props;
   const { t } = useTranslation('common');
 
   return (
-    <Dialog open={open} onClose={onClose} onExited={onExited}>
+    <Dialog open={open} TransitionProps={TransitionProps} onClose={onClose}>
       <DialogTitle>{t('unsavedChangesDialog.header')}</DialogTitle>
       <DialogActions>
         <Button color="primary" onClick={() => onResolve(false)}>

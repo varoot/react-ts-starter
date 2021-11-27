@@ -1,5 +1,5 @@
-import { makeStyles } from '@material-ui/core/styles';
-import Toolbar from '@material-ui/core/Toolbar';
+import Toolbar from '@mui/material/Toolbar';
+import makeStyles from '@mui/styles/makeStyles';
 import { memo, ReactNode, Suspense, useCallback, useState } from 'react';
 import testIds from '../constants/testIds';
 import AppSidebar from './AppSidebar';

@@ -1,6 +1,6 @@
-import { createTheme } from '@material-ui/core/styles';
+import { createTheme } from '@mui/material/styles';
 
-declare module '@material-ui/core/styles/createTheme' {
+declare module '@mui/material/styles' {
   /* eslint-disable @typescript-eslint/no-empty-interface */
   interface ThemeExtra {
     // Add theme's custom properties here
@@ -21,15 +21,15 @@ const theme = createTheme({
   },
 });
 
-theme.overrides = {
-  ...theme.overrides,
+theme.components = {
+  ...theme.components,
   MuiCssBaseline: {
-    '@global': {
+    styleOverrides: {
       html: {
         // Undo Material UI's font smoothing rules
         // https://usabilitypost.com/2012/11/05/stop-fixing-font-smoothing/
-        MozOsxFontSmoothing: undefined,
-        WebkitFontSmoothing: undefined,
+        MozOsxFontSmoothing: 'initial',
+        WebkitFontSmoothing: 'initial',
       },
       code: {
         color: theme.palette.secondary.main,

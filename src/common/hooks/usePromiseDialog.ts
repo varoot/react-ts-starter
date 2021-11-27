@@ -1,8 +1,8 @@
 import { useCallback, useContext, useEffect } from 'react';
 import { PromiseDialogContext } from '../contexts/PromiseDialogContext';
 import {
-  DialogComponentExtraProps,
   DialogComponentExtraPropKeys,
+  DialogComponentExtraProps,
   DialogComponentResolveType,
   DialogComponentType,
 } from '../typings';

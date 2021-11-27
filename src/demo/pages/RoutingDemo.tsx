@@ -1,5 +1,5 @@
-import { makeStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
+import makeStyles from '@mui/styles/makeStyles';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import routes from '../../common/constants/routes';

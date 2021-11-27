@@ -70,9 +70,6 @@ export function usePromiseDialogProvider(): PromiseDialogProviderResult {
           onClose: () => {
             // to define later
           },
-          onExited: () => {
-            // to define later
-          },
           onResolve: () => {
             // to define later
           },
@@ -89,7 +86,9 @@ export function usePromiseDialogProvider(): PromiseDialogProviderResult {
         };
 
         dialogInfo.onClose = () => dialogInfo.onResolve();
-        dialogInfo.onExited = () => remove(dialogInfo);
+        dialogInfo.TransitionProps = {
+          onExited: () => remove(dialogInfo),
+        };
 
         dialogInfoList.current.push(dialogInfo);
 

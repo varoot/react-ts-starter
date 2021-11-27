@@ -1,11 +1,11 @@
-import AppBar from '@material-ui/core/AppBar';
-import Hidden from '@material-ui/core/Hidden';
-import IconButton from '@material-ui/core/IconButton';
-import { makeStyles } from '@material-ui/core/styles';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import useScrollTrigger from '@material-ui/core/useScrollTrigger';
-import Menu from '@material-ui/icons/Menu';
+import Menu from '@mui/icons-material/Menu';
+import AppBar from '@mui/material/AppBar';
+import Hidden from '@mui/material/Hidden';
+import IconButton from '@mui/material/IconButton';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import useScrollTrigger from '@mui/material/useScrollTrigger';
+import makeStyles from '@mui/styles/makeStyles';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -52,6 +52,7 @@ function AppTopBar(props: Props): JSX.Element {
               className={classes.menuButton}
               color="inherit"
               edge="start"
+              size="large"
               onClick={onToggleSidebar}
             >
               <Menu />

@@ -1,9 +1,9 @@
-import Button from '@material-ui/core/Button';
-import Dialog, { DialogProps } from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
+import Button from '@mui/material/Button';
+import Dialog, { DialogProps } from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
 import { isValidElement, memo, ReactNode } from 'react';
 import { useRefFocus } from '../hooks';
 import { DialogComponentProps } from '../typings';
@@ -36,7 +36,13 @@ function SimpleDialog(props: Props): JSX.Element {
   const [buttonRef, focusButton] = useRefFocus<HTMLButtonElement>();
 
   return (
-    <Dialog {...otherProps} onEnter={focusButton}>
+    <Dialog
+      {...otherProps}
+      TransitionProps={{
+        ...otherProps.TransitionProps,
+        onEnter: focusButton,
+      }}
+    >
       {title && <DialogTitle>{title}</DialogTitle>}
       {content && (
         <DialogContent>

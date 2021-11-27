@@ -1,4 +1,4 @@
-import { configureStore, combineReducers } from '@reduxjs/toolkit';
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { commonReducer } from './common/store/commonSlice';
 
 export const rootReducer = combineReducers({

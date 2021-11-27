@@ -12,7 +12,7 @@ interface Props extends DialogComponentProps<boolean> {
  * Dialog for navigating away from route
  */
 function NavigateAwayDialog(props: Props): JSX.Element {
-  const { message, onClose, onExited, onResolve, open } = props;
+  const { message, onClose, onResolve, open, TransitionProps } = props;
   const { t } = useTranslation('common');
 
   const handleResolve = useCallback(
@@ -46,8 +46,8 @@ function NavigateAwayDialog(props: Props): JSX.Element {
       maxWidth="xs"
       open={!!open}
       title={t('navigatingAway')}
+      TransitionProps={TransitionProps}
       onClose={onClose}
-      onExited={onExited}
       onResolve={handleResolve}
     />
   );
