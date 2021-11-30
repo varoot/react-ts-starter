@@ -100,17 +100,17 @@
       {
         "paths": [
           {
-            "name": "@material-ui/core",
+            "name": "@mui/material",
             "message": "Please import each component separately."
           },
           {
-            "name": "@material-ui/icons",
+            "name": "@mui/icons-material",
             "message": "Please import each icon component separately."
           },
           "lodash",
           "rxjs"
         ],
-        "patterns": ["@material-ui/*/*/*", "!@material-ui/core/colors/*", "!@material-ui/core/styles/*"]
+        "patterns": ["@mui/*/*/*"]
       }
     ],
     "no-param-reassign": [
